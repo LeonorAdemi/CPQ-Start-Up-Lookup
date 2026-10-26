@@ -35,7 +35,7 @@ p{margin:0}
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) .35mm,transparent .4mm);background-size:4.2mm 4.2mm;
   -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 55%,#000 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 55%,#000 100%)}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.2mm;background:linear-gradient(90deg,var(--glow),var(--accent-2),transparent)}
-.hero .row{position:relative;display:grid;grid-template-columns:1.6fr 1fr;gap:4mm;align-items:center}
+.hero .row{position:relative;display:grid;grid-template-columns:1.75fr 1fr;gap:4mm;align-items:center}
 .topline{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5mm}
 .topline .eyebrow{color:var(--glow)}
 .logo{border:1px dashed rgba(255,255,255,.55);color:rgba(255,255,255,.8);font:600 7.5pt var(--f-mono);padding:2mm 4mm;border-radius:1.5mm;letter-spacing:.08em}
@@ -45,7 +45,7 @@ p{margin:0}
 .chips{display:flex;flex-wrap:nowrap;gap:1.4mm;margin-top:3mm}
 .chip{font:600 7.4pt var(--f-body);padding:1.2mm 2.5mm;white-space:nowrap;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;display:flex;gap:1.4mm;align-items:center}
 .chip svg{width:3.4mm;height:3.4mm;color:var(--glow)}
-.illu svg{width:100%;height:auto;display:block;filter:drop-shadow(0 3mm 6mm rgba(0,0,0,.35))}
+.illu svg{width:100%;height:36mm;display:block;filter:drop-shadow(0 3mm 6mm rgba(0,0,0,.35))}
 
 /* Vergleich */
 .compare{padding-top:4mm;display:grid;gap:3mm}
@@ -76,7 +76,7 @@ p{margin:0}
 .done{display:flex;align-items:center;gap:2mm;background:rgba(255,255,255,.14);border-radius:2mm;padding:2mm 3mm;font-weight:700;font-size:9pt}
 .done svg{width:5.4mm;height:5.4mm;color:#7ff0bf}
 .mid{display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
-.pic{width:100%;height:37mm;display:block;overflow:visible}
+.pic{width:100%;height:33mm;display:block;overflow:visible}
 .pic text{font-family:var(--f-body)}
 .lbl text,text.lbl{paint-order:stroke;stroke:#fdf0ee;stroke-width:5px;stroke-linejoin:round}
 .mid div{margin:0 -3mm;width:10mm;height:10mm;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 1.5mm 4mm rgba(18,26,46,.15);display:flex;align-items:center;justify-content:center;color:var(--accent)}
@@ -130,7 +130,7 @@ footer::before{content:none}
 .sp-head{display:grid;gap:1.6mm}
 .special h2{font-size:12pt}
 .special h2 em{font-style:normal;color:var(--accent)}
-.cover{width:100%;height:30mm;display:block;overflow:visible}
+.cover{width:100%;height:28mm;display:block;overflow:visible}
 .cover text{font-family:var(--f-body)}
 .usp{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
 .usp>div{display:grid;grid-template-columns:auto 1fr;gap:2.6mm;align-items:center;padding:2.2mm 3mm;border-radius:2.5mm;background:var(--tint);border:1px solid var(--line)}
@@ -158,11 +158,39 @@ footer::before{content:none}
 .bolt svg{width:7mm;height:7mm}
 .src{font-size:6.6pt;color:var(--muted)}
 sup{font-size:.7em;line-height:0}
+
+/* Wert */
+.value{padding-top:3.6mm;display:grid;gap:2.2mm}
+.value h2{font-size:12.5pt}
+.value h2 em{font-style:normal;color:var(--accent)}
+.vgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:4mm;align-items:stretch}
+.vbig{border-radius:3mm;padding:3.4mm 4mm;color:#fff;display:grid;gap:2.2mm;align-content:start;
+  background:radial-gradient(45mm 30mm at 100% 0%,rgba(143,211,255,.4),transparent 70%),linear-gradient(135deg,#0b1430,#1d36a8 60%,#2f54e0);box-shadow:0 2.5mm 7mm rgba(13,22,51,.3)}
+.vbig .cap{font:600 7pt var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--glow)}
+.vbars{display:grid;gap:1.4mm}
+.vb{display:grid;grid-template-columns:19mm 1fr 10mm;align-items:center;gap:2mm;font-size:7.8pt;color:#cdd7ff}
+.vb .track{display:flex;height:4.6mm;border-radius:1.2mm;background:rgba(255,255,255,.1);overflow:hidden}
+.vb .base{display:block;width:27%;background:rgba(143,211,255,.75)}
+.vb .plus{display:flex;align-items:center;flex:1;padding-left:2mm;font:700 6.8pt var(--f-body);font-style:normal;color:#0b1430;white-space:nowrap;background:linear-gradient(90deg,#ffffff 0%,#cfe9ff 70%,rgba(143,211,255,0) 100%);box-shadow:0 0 3mm rgba(143,211,255,.8)}
+.vb .t0{background:rgba(255,255,255,.35)}
+.vb .t1{background:rgba(143,211,255,.6)}
+.vb .t2{width:42%;background:linear-gradient(90deg,#fff,#8fd3ff);box-shadow:0 0 3mm rgba(143,211,255,.8);position:relative}
+.vb .t2::after{content:"";position:absolute;right:-6mm;top:50%;width:5mm;border-top:.5mm dashed #fff;transform:translateY(-50%)}
+.vb.us span{color:#fff;font-weight:700}
+.vb b{font:800 9pt var(--f-display);color:#fff;white-space:nowrap}
+.vb.us b{color:var(--glow)}
+.vbig p{font-size:8pt;line-height:1.35;color:#dbe3ff}
+.vbig p b{color:#fff}
+.chain{border-radius:3mm;border:1px solid #dfe5f7;background:linear-gradient(180deg,#f7f9ff,#eef2fd);padding:2mm 3mm;display:flex;align-items:center}
+.chain svg{width:100%;height:31mm;display:block;overflow:visible}
+.chain text{font-family:var(--f-body)}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M7 3h10M7 21h10M8 3v3l4 6-4 6v3M16 3v3l-4 6 4 6v3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
   <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 14.5h18M9 4v16"/></symbol>
@@ -193,12 +221,6 @@ sup{font-size:.7em;line-height:0}
       <div>
         <h1>Ihr Vertrieb soll verkaufen.<br><em>Nicht Anfragen abtippen.</em></h1>
         <p class="sub">Wir automatisieren den Weg von der Kundenanfrage bis zum fertigen Angebot. Ihr Team prüft und gibt frei, den Rest erledigt die KI.</p>
-        <div class="chips">
-          <span class="chip"><svg class="ic"><use href="#i-bolt"/></svg>Schneller</span>
-          <span class="chip"><svg class="ic"><use href="#i-shield"/></svg>Weniger Fehler</span>
-          <span class="chip"><svg class="ic"><use href="#i-users"/></svg>Entlastetes Team</span>
-          <span class="chip"><svg class="ic"><use href="#i-brain"/></svg>Wissen gesichert</span>
-        </div>
       </div>
       <div class="illu">
         <svg viewBox="0 0 300 190" role="img" aria-label="Ungeordnete Anfragen werden durch KI zu einem fertigen, freigegebenen Angebot">
@@ -314,32 +336,53 @@ sup{font-size:.7em;line-height:0}
     </div>
   </section>
 
-  <section class="speed in">
+  <section class="value in">
     <div class="sp-head">
-      <span class="eyebrow">Geschwindigkeit, belegt</span>
-      <h2>Mehr Zeit für Kunden. <em>Schneller zum Angebot.</em></h2>
+      <span class="eyebrow">Unser Wert</span>
+      <h2>Klassisches CPQ spart Zeit. <em>Wir machen daraus Aufträge.</em></h2>
     </div>
-    <div class="stats">
-      <div class="stat">
-        <svg class="donut" viewBox="0 0 64 64" aria-hidden="true">
-          <circle cx="32" cy="32" r="26" fill="none" stroke="#e8ecfb" stroke-width="9"/>
-          <circle cx="32" cy="32" r="26" fill="none" stroke="url(#dg)" stroke-width="9" stroke-linecap="round" stroke-dasharray="45.7 163.4" transform="rotate(-90 32 32)"/>
-          <defs><linearGradient id="dg" x1="0" x2="1"><stop offset="0" stop-color="#2f54e0"/><stop offset="1" stop-color="#6f8cff"/></linearGradient></defs>
-          <text x="32" y="36.5" text-anchor="middle" font-family="Archivo,Arial" font-weight="800" font-size="13" fill="#121a2e">28%</text>
-        </svg>
-        <p><b>der Woche</b> verbringen Vertriebler mit Verkaufen. Der Rest: Daten&shy;pflege und Verwaltung.<sup>1</sup></p>
-      </div>
-      <div class="stat">
-        <div class="bars">
-          <div class="br"><span>ohne</span><i style="width:100%" class="o"></i><b>4,9&nbsp;h</b></div>
-          <div class="br"><span>mit</span><i style="width:73.5%"></i><b>3,6&nbsp;h</b></div>
-          <div class="minus">−27&nbsp;%</div>
+    <div class="vgrid">
+      <div class="vbig">
+        <span class="cap">Eingesparte Zeit pro Angebot</span>
+        <div class="vbars">
+          <div class="vb"><span>Klassisches CPQ</span><div class="track"><i class="base"></i></div><b>27&nbsp;%<sup>2</sup></b></div>
+          <div class="vb us"><span>Mit uns</span><div class="track"><i class="base"></i><i class="plus">+ Lesen und Klären</i></div><b>mehr</b></div>
         </div>
-        <p><b>pro Angebot</b> schon mit klassischem CPQ.<sup>2</sup> Wir starten früher: beim Lesen der Anfrage.</p>
+        <p><b>27 % sind unser Startpunkt, nicht unser Ziel.</b> Dazu kommt, was davor liegt: Lesen und Klären der Anfrage.</p>
       </div>
-      <div class="stat">
-        <span class="bolt"><svg class="ic"><use href="#i-bolt"/></svg></span>
-        <p><b>Entwurf beim Eingang</b> der Anfrage, nicht erst, wenn jemand Zeit hat.</p>
+      <div class="chain">
+        <svg viewBox="0 0 400 150" role="img" aria-label="Wertkette: Zeit frei, mehr Angebote, schneller beim Kunden, mehr Aufträge">
+          <defs>
+            <linearGradient id="cg" x1="0" x2="1"><stop offset="0" stop-color="#6f8cff"/><stop offset="1" stop-color="#2f54e0"/></linearGradient>
+            <radialGradient id="cw" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#8fd3ff"/><stop offset=".55" stop-color="#2f54e0"/><stop offset="1" stop-color="#1d36a8"/></radialGradient>
+          </defs>
+          <path d="M30 66 C 90 66, 100 62, 150 60 S 260 52, 330 50" fill="none" stroke="url(#cg)" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
+          <circle cx="34" cy="66" r="18" fill="#e8ecfb" stroke="#6f8cff" stroke-width="1.5"/>
+          <svg x="23" y="55" width="22" height="22" class="ic" style="color:#2f54e0"><use href="#i-clock"/></svg>
+          <circle cx="132" cy="62" r="23" fill="#dfe6fd" stroke="#4f6ff0" stroke-width="1.5"/>
+          <svg x="119" y="49" width="26" height="26" class="ic" style="color:#2f54e0"><use href="#i-file"/></svg>
+          <circle cx="236" cy="56" r="29" fill="#c9d5fb" stroke="#2f54e0" stroke-width="1.5"/>
+          <svg x="220" y="40" width="32" height="32" class="ic" style="color:#1d36a8"><use href="#i-bolt"/></svg>
+          <circle cx="350" cy="50" r="40" fill="#2f54e0" opacity=".18"/>
+          <circle cx="350" cy="50" r="34" fill="url(#cw)"/>
+          <svg x="330" y="30" width="40" height="40" class="ic" style="color:#fff"><use href="#i-trend"/></svg>
+          <g text-anchor="middle" font-size="12" font-weight="700" fill="#121a2e">
+            <text x="34" y="106">Zeit frei</text>
+            <text x="132" y="106">Mehr Angebote</text>
+            <text x="236" y="106">Schneller beim</text>
+            <text x="236" y="120">Kunden</text>
+            <text x="350" y="106" font-size="14" fill="#2f54e0">Mehr Aufträge</text>
+          </g>
+          <g text-anchor="middle" font-size="10" fill="#5b6578">
+            <text x="34" y="120">heute nur 28 %</text>
+            <text x="34" y="132">Verkaufszeit¹</text>
+            <text x="132" y="120">mit demselben</text>
+            <text x="132" y="132">Team</text>
+            <text x="236" y="134">solange er vergleicht</text>
+            <text x="350" y="122">aus eingesparter Zeit</text>
+            <text x="350" y="134">wird Umsatz</text>
+          </g>
+        </svg>
       </div>
     </div>
     <p class="src"><sup>1</sup> Salesforce, State of Sales, 5. Ausgabe, Dez. 2022, 7.775 Befragte. <sup>2</sup> Aberdeen Group, zitiert nach SoftClouds: 3,6 statt 4,9 Stunden je Angebot.</p>
