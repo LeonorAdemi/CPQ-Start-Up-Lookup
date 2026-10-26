@@ -1,0 +1,329 @@
+<title>Business Case Anfrage-zu-Angebot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: eine Lesespalte; Rechner als zweispaltiges Werkzeug (Eingaben | Ergebnis), darunter das ausgeschriebene Rechenbeispiel */
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --fg:#17202b; --muted:#5a6676; --line:#dde2e9;
+  --accent:#2747c4; --accent-soft:#e7ebfb; --good:#1d7a4f; --bad:#b4372c;
+  --f-display:"Archivo",system-ui,sans-serif;
+  --f-body:"Source Sans 3",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11161d; --surface:#18202a; --fg:#e6eaf0; --muted:#9aa6b6; --line:#2a3542;
+  --accent:#8aa2ff; --accent-soft:#1f2a4a; --good:#5fcf98; --bad:#f08a7e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11161d; --surface:#18202a; --fg:#e6eaf0; --muted:#9aa6b6; --line:#2a3542;
+  --accent:#8aa2ff; --accent-soft:#1f2a4a; --good:#5fcf98; --bad:#f08a7e; color-scheme:dark}
+
+body{background:var(--bg);color:var(--fg);font:17px/1.55 var(--f-body)}
+.wrap{max-width:1080px;margin:0 auto;padding-block:40px 64px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:grid;gap:56px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:26px;font-weight:700}
+h3{font-size:18px;font-weight:700}
+p{margin:0;max-width:68ch}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+section{display:grid;gap:18px}
+header{display:grid;gap:16px}
+.note{border-left:3px solid var(--line);padding:4px 0 4px 14px;color:var(--muted);font-size:15px;max-width:72ch}
+
+/* KPI-Zeile */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:4px;min-width:0}
+.kpi .v{font:600 clamp(20px,2.6vw,28px)/1.1 var(--f-mono);font-variant-numeric:tabular-nums}
+.kpi .l{font-size:14px;color:var(--muted)}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Tabellen */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;white-space:nowrap}
+tr.win td{background:var(--accent-soft)}
+.bar{height:8px;border-radius:4px;background:var(--accent);min-width:2px}
+.pill{display:inline-block;font:600 11px/1 var(--f-mono);letter-spacing:.06em;padding:4px 7px;border-radius:999px;background:var(--accent);color:var(--surface);margin-left:6px;vertical-align:2px}
+
+/* Rechner */
+.tool{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:start}
+@media (max-width:860px){.tool{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px;display:grid;gap:16px;min-width:0}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:10px}
+legend{font:600 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:10px;align-items:center}
+.field label{font-size:15px}
+.field input{font:15px var(--f-mono);font-variant-numeric:tabular-nums;width:100%;box-sizing:border-box;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);text-align:right}
+input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.toggle{display:flex;gap:10px;align-items:center;font-size:15px}
+.toggle input{width:18px;height:18px;accent-color:var(--accent)}
+.scen{display:flex;flex-wrap:wrap;gap:8px}
+.scen button{font:600 14px var(--f-body);padding:7px 12px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.scen button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* Chart */
+.chart svg{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font:11px var(--f-mono)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* Rechenweg */
+.steps{display:grid;gap:10px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:grid;gap:6px;min-width:0}
+.step h3{font-size:16px}
+.step h3::before{counter-increment:s;content:counter(s) ". ";color:var(--accent)}
+.formula{font:14px/1.6 var(--f-mono);font-variant-numeric:tabular-nums;overflow-x:auto;white-space:nowrap;color:var(--muted)}
+.formula b{color:var(--fg);font-weight:600}
+.pos{color:var(--good)} .neg{color:var(--bad)}
+ul{margin:0;padding-left:20px;max-width:70ch;display:grid;gap:6px}
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">CPQ · Business Case · Stand Oktober 2026</span>
+  <h1>KI-gestützte Anfrage-zu-Angebot-Automatisierung</h1>
+  <p>Kundenanfragen kommen als E-Mail, PDF-Lastenheft oder Excel-Stückliste. Heute liest der Vertriebsinnendienst sie von Hand, stimmt technische Details mit der Konstruktion ab, konfiguriert im ERP und schreibt das Angebot. Der Use Case automatisiert diese Strecke: KI extrahiert die Anforderungen, mappt sie auf das Konfigurationsmodell, kalkuliert und erzeugt einen prüffertigen Angebotsentwurf.</p>
+  <p class="note">Grundlage: Im Repository liegen noch keine Unternehmensdaten. Alle Zahlen beschreiben ein <b>Musterunternehmen</b> (Maschinen- und Anlagenbau, Mittelstand, rund 6.000 Angebote pro Jahr) mit marktüblichen Annahmen. Im Rechner unten lassen sich alle Werte durch eigene Zahlen ersetzen.</p>
+</header>
+
+<section aria-labelledby="h-kpi">
+  <h2 id="h-kpi" class="eyebrow" style="font:600 12px/1 var(--f-mono)">Ergebnis im Basisszenario (nur Kosteneinsparung, 3 Jahre)</h2>
+  <div class="kpis">
+    <div class="kpi"><span class="v" id="k-netto">–</span><span class="l">Netto-Nutzen über 3 Jahre</span></div>
+    <div class="kpi"><span class="v" id="k-roi">–</span><span class="l">ROI auf Gesamtkosten</span></div>
+    <div class="kpi"><span class="v" id="k-payback">–</span><span class="l">Amortisation</span></div>
+    <div class="kpi"><span class="v" id="k-fte">–</span><span class="l">frei werdende Kapazität (FTE)</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-rank">
+  <span class="eyebrow">Auswahl</span>
+  <h2 id="h-rank">Welcher Use Case hat das größte Potenzial?</h2>
+  <p>Fünf typische CPQ-Use-Cases, bewertet für dasselbe Musterunternehmen. Maßstab ist das jährliche Einsparpotenzial im eingeschwungenen Zustand. Die Anfrage-zu-Angebot-Strecke liegt vorn, weil sie den größten Zeitblock im Angebotsprozess adressiert: das Lesen, Klären und Übertragen technischer Anforderungen.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Use Case</th><th>Hebel</th><th class="r">Potenzial / Jahr</th><th style="width:22%"></th></tr></thead>
+      <tbody>
+        <tr class="win"><td><b>KI Anfrage-zu-Angebot</b><span class="pill">GEWÄHLT</span></td><td>60 % weniger Bearbeitungszeit je Angebot, weniger Nacharbeit</td><td class="r num">1,21 Mio. €</td><td><div class="bar" style="width:100%"></div></td></tr>
+        <tr><td>Preis- und Rabatt-Governance</td><td>Weniger Margenverlust durch Freigabe-Workflows</td><td class="r num">0,48 Mio. €</td><td><div class="bar" style="width:40%"></div></td></tr>
+        <tr><td>Guided Selling im Außendienst</td><td>Weniger Rückfragen an Technik, schnellere Erstkonfiguration</td><td class="r num">0,42 Mio. €</td><td><div class="bar" style="width:35%"></div></td></tr>
+        <tr><td>CRM/ERP-Integration</td><td>Keine Doppelerfassung von Kunden- und Positionsdaten</td><td class="r num">0,27 Mio. €</td><td><div class="bar" style="width:22%"></div></td></tr>
+        <tr><td>Automatische Angebotsdokumente</td><td>Layout, Textbausteine, Anlagen ohne Handarbeit</td><td class="r num">0,18 Mio. €</td><td><div class="bar" style="width:15%"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted" style="font-size:15px">Schätzwerte für das Musterunternehmen, gerundet. Der Wert in der ersten Zeile entspricht dem Basisszenario des Rechners.</p>
+</section>
+
+<section aria-labelledby="h-calc">
+  <span class="eyebrow">Rechner</span>
+  <h2 id="h-calc">Annahmen anpassen</h2>
+  <div class="tool">
+    <form class="panel" id="form" autocomplete="off">
+      <div class="scen" role="group" aria-label="Szenario">
+        <button type="button" data-s="kons" aria-pressed="false">Konservativ</button>
+        <button type="button" data-s="basis" aria-pressed="true">Basis</button>
+        <button type="button" data-s="opt" aria-pressed="false">Optimistisch</button>
+      </div>
+      <fieldset><legend>Angebotsprozess heute</legend>
+        <div class="field"><label for="angebote">Angebote pro Jahr</label><input id="angebote" type="number" min="0" step="100"></div>
+        <div class="field"><label for="stunden">Stunden je Angebot</label><input id="stunden" type="number" min="0" step="0.5"></div>
+        <div class="field"><label for="satz">Vollkosten-Stundensatz (€)</label><input id="satz" type="number" min="0" step="5"></div>
+        <div class="field"><label for="fehler">Angebote mit Fehler/Nacharbeit (%)</label><input id="fehler" type="number" min="0" max="100" step="1"></div>
+        <div class="field"><label for="nacharbeit">Nacharbeit je Fehler (h)</label><input id="nacharbeit" type="number" min="0" step="0.5"></div>
+      </fieldset>
+      <fieldset><legend>Wirkung der Lösung</legend>
+        <div class="field"><label for="zeit">Zeitersparnis je Angebot (%)</label><input id="zeit" type="number" min="0" max="100" step="5"></div>
+        <div class="field"><label for="real">Davon monetarisierbar (%)</label><input id="real" type="number" min="0" max="100" step="5"></div>
+        <div class="field"><label for="fred">Weniger Fehler (%)</label><input id="fred" type="number" min="0" max="100" step="5"></div>
+      </fieldset>
+      <fieldset><legend>Investition</legend>
+        <div class="field"><label for="einmal">Einmalkosten (€)</label><input id="einmal" type="number" min="0" step="10000"></div>
+        <div class="field"><label for="laufend">Laufende Kosten pro Jahr (€)</label><input id="laufend" type="number" min="0" step="5000"></div>
+      </fieldset>
+      <fieldset><legend>Umsatzeffekt (optional)</legend>
+        <label class="toggle"><input id="umsatz" type="checkbox"> Höhere Abschlussquote durch schnellere Angebote einrechnen</label>
+        <div class="field"><label for="hit">Plus Abschlussquote (Prozentpunkte)</label><input id="hit" type="number" min="0" step="0.5"></div>
+        <div class="field"><label for="awert">Ø Auftragswert (€)</label><input id="awert" type="number" min="0" step="1000"></div>
+        <div class="field"><label for="db">Deckungsbeitrag (%)</label><input id="db" type="number" min="0" max="100" step="1"></div>
+      </fieldset>
+    </form>
+
+    <div class="panel">
+      <h3>Nutzen und Kosten pro Jahr</h3>
+      <div class="tbl" style="border:0">
+        <table id="yt">
+          <thead><tr><th></th><th class="r">Jahr 0</th><th class="r">Jahr 1</th><th class="r">Jahr 2</th><th class="r">Jahr 3</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="chart" aria-label="Kumulierter Cashflow über 36 Monate">
+        <svg id="chart" viewBox="0 0 520 220" role="img"></svg>
+      </div>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Kumulierter Netto-Cashflow</span><span><i style="background:var(--line)"></i>Nulllinie</span></div>
+      <p class="muted" style="font-size:14px">Hochlauf: Jahr 1 mit 50 %, Jahr 2 mit 85 %, ab Jahr 3 mit 100 % der Wirkung. Diskontierung mit 8 % p. a.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-steps">
+  <span class="eyebrow">Rechenbeispiel</span>
+  <h2 id="h-steps">Der Rechenweg Schritt für Schritt</h2>
+  <p>Die Formeln zeigen die aktuell eingestellten Werte. Wer oben eine Annahme ändert, sieht hier sofort die neue Rechnung.</p>
+  <div class="steps" id="steps"></div>
+</section>
+
+<section aria-labelledby="h-cost">
+  <span class="eyebrow">Investition</span>
+  <h2 id="h-cost">Woraus sich die Kosten im Basisszenario zusammensetzen</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Position</th><th class="r">Betrag</th></tr></thead>
+      <tbody>
+        <tr><td>Implementierung CPQ-Plattform und KI-Extraktion</td><td class="r num">280.000 €</td></tr>
+        <tr><td>Konfigurationsmodell und Stammdaten bereinigen</td><td class="r num">80.000 €</td></tr>
+        <tr><td>Schulung und Change-Management</td><td class="r num">40.000 €</td></tr>
+        <tr><td><b>Einmalkosten gesamt</b></td><td class="r num"><b>400.000 €</b></td></tr>
+        <tr><td>Lizenzen (SaaS) pro Jahr</td><td class="r num">110.000 €</td></tr>
+        <tr><td>KI-Nutzung, ca. 2,50 € je Angebot</td><td class="r num">15.000 €</td></tr>
+        <tr><td>Betrieb und Pflege des Modells, 0,5 FTE</td><td class="r num">45.000 €</td></tr>
+        <tr><td><b>Laufende Kosten pro Jahr</b></td><td class="r num"><b>170.000 €</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="h-risk">
+  <span class="eyebrow">Einordnung</span>
+  <h2 id="h-risk">Risiken und was sie für die Rechnung bedeuten</h2>
+  <ul>
+    <li><b>Zeitersparnis ist nicht automatisch Geld.</b> Deshalb zählt nur der monetarisierbare Anteil (Basis 70 %): Kapazität, die Einstellungen ersetzt, Überstunden abbaut oder in mehr Angebote fließt.</li>
+    <li><b>Datenqualität bestimmt die Trefferquote.</b> Ohne sauberes Konfigurationsmodell sinkt die Zeitersparnis. Das konservative Szenario rechnet mit 40 % statt 60 %.</li>
+    <li><b>Akzeptanz im Vertriebsinnendienst.</b> Der Entwurf bleibt prüfpflichtig, der Mensch gibt frei. Das senkt das Risiko falscher Angebote und erhöht die Akzeptanz.</li>
+    <li><b>Umsatzeffekt ist das größte Upside.</b> Schnellere Angebote gewinnen häufiger. Er ist standardmäßig ausgeschaltet, damit der Case allein über Kosten trägt.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+const SCEN={
+  basis:{angebote:6000,stunden:6,satz:75,fehler:8,nacharbeit:3,zeit:60,real:70,fred:70,einmal:400000,laufend:170000,hit:1,awert:45000,db:25},
+  kons:{angebote:6000,stunden:6,satz:75,fehler:8,nacharbeit:3,zeit:40,real:50,fred:50,einmal:480000,laufend:190000,hit:0.5,awert:45000,db:25},
+  opt:{angebote:6000,stunden:6,satz:75,fehler:8,nacharbeit:3,zeit:70,real:85,fred:80,einmal:360000,laufend:160000,hit:2,awert:45000,db:25}
+};
+const RAMP=[0.5,0.85,1], RATE=0.08, FTE_H=1650;
+const ids=Object.keys(SCEN.basis);
+const $=id=>document.getElementById(id);
+const eur=v=>(v<0?"−":"")+Math.round(Math.abs(v)).toLocaleString("de-DE")+" €";
+const meur=v=>(v<0?"−":"")+(Math.abs(v)/1e6).toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" Mio. €";
+const n=(v,d=0)=>v.toLocaleString("de-DE",{minimumFractionDigits:d,maximumFractionDigits:d});
+
+function setScen(s){
+  ids.forEach(k=>$(k).value=SCEN[s][k]);
+  document.querySelectorAll(".scen button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===s));
+  calc();
+}
+
+function compute(p,withRevenue){
+  const hTotal=p.angebote*p.stunden;
+  const hSaved=hTotal*p.zeit/100;
+  const A=hSaved*p.real/100*p.satz;
+  const fehlerN=p.angebote*p.fehler/100;
+  const B=fehlerN*p.fred/100*p.nacharbeit*p.satz;
+  const extraOrders=p.angebote*p.hit/100;
+  const C=withRevenue?extraOrders*p.awert*p.db/100:0;
+  const brutto=A+B+C;
+  const years=RAMP.map((r,i)=>{const nutzen=brutto*r;return{r,nutzen,kosten:p.laufend,netto:nutzen-p.laufend,df:Math.pow(1+RATE,-(i+1))}});
+  const netto=years.reduce((s,y)=>s+y.netto,0)-p.einmal;
+  const gesamtkosten=p.einmal+p.laufend*3;
+  const npv=-p.einmal+years.reduce((s,y)=>s+y.netto*y.df,0);
+  let cum=-p.einmal,payback=null;const series=[cum];
+  for(let m=1;m<=36;m++){cum+=years[Math.ceil(m/12)-1].netto/12;series.push(cum);if(payback===null&&cum>=0)payback=m}
+  return{hTotal,hSaved,A,fehlerN,B,extraOrders,C,brutto,years,netto,gesamtkosten,roi:netto/gesamtkosten,npv,payback,series,fte:hSaved/FTE_H};
+}
+
+function calc(){
+  const p={};ids.forEach(k=>p[k]=parseFloat($(k).value)||0);
+  const rev=$("umsatz").checked;
+  ["hit","awert","db"].forEach(k=>$(k).disabled=!rev);
+  const r=compute(p,rev);
+
+  $("k-netto").textContent=meur(r.netto);
+  $("k-roi").textContent=n(r.roi*100)+" %";
+  $("k-payback").textContent=r.payback?r.payback+" Monate":"> 36 Monate";
+  $("k-fte").textContent=n(r.fte,1);
+  document.querySelector("#h-kpi").textContent="Ergebnis im eingestellten Szenario ("+(rev?"inkl. Umsatzeffekt":"nur Kosteneinsparung")+", 3 Jahre)";
+
+  const row=(label,cells,cls="")=>`<tr><td>${label}</td>${cells.map(c=>`<td class="r num ${c<0?"neg":c>0&&cls?"pos":""}">${c===null?"–":eur(c)}</td>`).join("")}</tr>`;
+  $("yt").tBodies[0].innerHTML=
+    row("Nutzen",[null,...r.years.map(y=>y.nutzen)])+
+    row("Laufende Kosten",[null,...r.years.map(y=>-y.kosten)])+
+    row("Einmalkosten",[-p.einmal,null,null,null])+
+    row("<b>Netto</b>",[-p.einmal,...r.years.map(y=>y.netto)],"x");
+
+  drawChart(r.series,r.payback);
+
+  const f=(s)=>`<div class="formula">${s}</div>`;
+  const steps=[
+    ["Heutiger Aufwand im Angebotsprozess",
+      f(`${n(p.angebote)} Angebote × ${n(p.stunden,1)} h = <b>${n(r.hTotal)} h pro Jahr</b>`)+
+      f(`${n(r.hTotal)} h × ${n(p.satz)} €/h = <b>${eur(r.hTotal*p.satz)}</b> Prozesskosten`)],
+    ["Einsparung durch kürzere Bearbeitung",
+      f(`${n(r.hTotal)} h × ${n(p.zeit)} % Zeitersparnis = <b>${n(r.hSaved)} h</b> (≈ ${n(r.fte,1)} FTE bei ${n(FTE_H)} h/Jahr)`)+
+      f(`${n(r.hSaved)} h × ${n(p.real)} % monetarisierbar × ${n(p.satz)} €/h = <b>${eur(r.A)}</b>`)],
+    ["Einsparung durch weniger Nacharbeit",
+      f(`${n(p.angebote)} × ${n(p.fehler)} % = ${n(r.fehlerN)} fehlerhafte Angebote`)+
+      f(`${n(r.fehlerN)} × ${n(p.fred)} % weniger × ${n(p.nacharbeit,1)} h × ${n(p.satz)} €/h = <b>${eur(r.B)}</b>`)],
+    ["Umsatzeffekt "+(rev?"(eingerechnet)":"(ausgeschaltet)"),
+      rev? f(`${n(p.angebote)} × ${n(p.hit,1)} Prozentpunkte = ${n(r.extraOrders)} zusätzliche Aufträge`)+
+           f(`${n(r.extraOrders)} × ${eur(p.awert)} × ${n(p.db)} % DB = <b>${eur(r.C)}</b>`)
+         : f(`nicht berücksichtigt → <b>0 €</b>`)],
+    ["Jährlicher Nutzen bei voller Wirkung",
+      f(`${eur(r.A)} + ${eur(r.B)}${rev?" + "+eur(r.C):""} = <b>${eur(r.brutto)}</b>`)],
+    ["Nutzen mit Hochlauf, abzüglich laufender Kosten",
+      r.years.map((y,i)=>f(`Jahr ${i+1}: ${eur(r.brutto)} × ${n(y.r*100)} % − ${eur(y.kosten)} = <b class="${y.netto<0?"neg":""}">${eur(y.netto)}</b>`)).join("")],
+    ["Netto-Nutzen und ROI über 3 Jahre",
+      f(`${r.years.map(y=>eur(y.netto)).join(" + ")} − ${eur(p.einmal)} Einmalkosten = <b>${eur(r.netto)}</b>`)+
+      f(`ROI = ${eur(r.netto)} ÷ ${eur(r.gesamtkosten)} Gesamtkosten (einmalig + 3 × laufend) = <b>${n(r.roi*100)} %</b>`)],
+    ["Kapitalwert und Amortisation",
+      f(`NPV (8 %) = −${eur(p.einmal)} ${r.years.map((y,i)=>`+ ${eur(y.netto)} ÷ 1,08${i?"^"+(i+1):""}`).join(" ")} = <b>${eur(r.npv)}</b>`)+
+      f(`Monatlicher Netto-Rückfluss in Jahr 1: ${eur(r.years[0].netto/12)} → Einmalkosten zurückverdient nach <b>${r.payback?r.payback+" Monaten":"mehr als 36 Monaten"}</b>`)]
+  ];
+  $("steps").innerHTML=steps.map(([h,b])=>`<div class="step"><h3>${h}</h3>${b}</div>`).join("");
+}
+
+function drawChart(s,payback){
+  const W=520,H=220,L=62,R=12,T=12,B=28;
+  const min=Math.min(0,...s),max=Math.max(0,...s);
+  const span=max-min||1;
+  const x=i=>L+(W-L-R)*i/36, y=v=>T+(H-T-B)*(max-v)/span;
+  const step=niceStep(span/4);
+  let g="";
+  for(let v=Math.ceil(min/step)*step;v<=max+1e-6;v+=step){
+    g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="${v===0?1.5:0.6}"/>`+
+       `<text x="${L-6}" y="${y(v)+4}" text-anchor="end">${(v/1e6).toLocaleString("de-DE",{maximumFractionDigits:1})} Mio</text>`;
+  }
+  [0,12,24,36].forEach(m=>g+=`<text x="${x(m)}" y="${H-8}" text-anchor="middle">${m===0?"Start":"M"+m}</text>`);
+  const pts=s.map((v,i)=>`${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  g+=`<polygon points="${x(0)},${y(0)} ${pts} ${x(36)},${y(0)}" fill="var(--accent)" fill-opacity="0.12"/>`;
+  g+=`<polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"/>`;
+  g+=`<circle cx="${x(36)}" cy="${y(s[36])}" r="4" fill="var(--accent)"/>`;
+  if(payback){g+=`<line x1="${x(payback)}" x2="${x(payback)}" y1="${T}" y2="${H-B}" stroke="var(--good)" stroke-dasharray="3 3"/>`+
+    `<text x="${x(payback)+5}" y="${T+10}" style="fill:var(--good)">Break-even M${payback}</text>`}
+  $("chart").innerHTML=g;
+}
+function niceStep(raw){const p=Math.pow(10,Math.floor(Math.log10(raw)));const m=raw/p;return(m<=1?1:m<=2?2:m<=5?5:10)*p}
+
+document.querySelectorAll(".scen button").forEach(b=>b.addEventListener("click",()=>setScen(b.dataset.s)));
+$("form").addEventListener("input",()=>{document.querySelectorAll(".scen button").forEach(b=>b.setAttribute("aria-pressed","false"));calc()});
+$("form").addEventListener("submit",e=>e.preventDefault());
+setScen("basis");
+</script>
