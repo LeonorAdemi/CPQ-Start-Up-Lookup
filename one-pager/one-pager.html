@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>One Pager Angebotsautomatisierung</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: A4 hoch, Leseweg Versprechen -> Problem -> Lösung -> Nutzen je Rolle -> Beweis -> Einstieg ohne Risiko -> nächster Schritt */
+:root{
+  --ink:#141c2b; --muted:#5b6578; --line:#dfe3ea; --paper:#ffffff; --tint:#f3f5f9;
+  --accent:#2747c4; --accent-soft:#e8ecfb; --pain:#b4372c;
+  --f-display:"Archivo",Arial,sans-serif;
+  --f-body:"Source Sans 3",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font:9.2pt/1.38 var(--f-body)}
+.page{width:210mm;height:297mm;padding:11mm 14mm 9mm;display:flex;flex-direction:column;gap:4.2mm;overflow:hidden}
+h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.1;text-wrap:balance}
+p{margin:0}
+.eyebrow{font:600 7.4pt/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{border:1px dashed var(--muted);color:var(--muted);font:600 7.5pt var(--f-mono);padding:2.2mm 4mm;border-radius:1.5mm;letter-spacing:.08em}
+
+.hero{display:grid;gap:2.2mm}
+.hero h1{font-size:24pt;font-weight:800;letter-spacing:-.015em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .sub{font-size:10.6pt;line-height:1.4;max-width:165mm;color:var(--ink)}
+
+/* Problem */
+.problem{background:var(--ink);color:#fff;border-radius:2.5mm;padding:4.2mm 6mm;display:grid;gap:2.6mm}
+.problem .eyebrow{color:#9fb2ff}
+.problem h2{font-size:12.5pt;font-weight:700}
+.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.pain{display:grid;gap:1mm;align-content:start;border-top:1px solid rgba(255,255,255,.25);padding-top:2.5mm}
+.pain .v{font:800 17pt/1 var(--f-display);font-variant-numeric:tabular-nums}
+.pain .l{font-size:8.3pt;line-height:1.35;color:#cfd6e4}
+
+/* Lösung */
+.solution{display:grid;gap:2.2mm}
+.solution h2{font-size:12.5pt}
+.steps{display:grid;grid-template-columns:1fr 6mm 1fr 6mm 1fr;align-items:stretch}
+.step{border:1px solid var(--line);border-radius:2mm;padding:2.5mm 3.2mm;display:grid;gap:1mm;align-content:start}
+.step.last{border-color:var(--accent);background:var(--accent-soft)}
+.step .k{font:600 7.2pt var(--f-mono);color:var(--accent);letter-spacing:.08em}
+.step h3{font-size:10.5pt}
+.step p{font-size:8.3pt;line-height:1.32;color:var(--muted)}
+.arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font:700 12pt var(--f-display)}
+.promise-line{font-size:9.4pt}
+.promise-line b{color:var(--accent)}
+
+/* Rollen */
+.roles{display:grid;gap:2.2mm}
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.role{background:var(--tint);border-radius:2mm;padding:3mm 3.6mm;display:grid;gap:1.2mm;align-content:start}
+.role .who{font:600 7.2pt var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.role h3{font-size:10.4pt}
+.role .big{font:800 16pt/1 var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums}
+.role ul{margin:0;padding-left:3.6mm;font-size:8.3pt;display:grid;gap:.6mm}
+
+/* Beweis + Einstieg */
+.bottom{display:grid;grid-template-columns:1.12fr 1fr;gap:5mm}
+.calc{border:1px solid var(--line);border-radius:2mm;padding:3mm 3.6mm;display:grid;gap:1.4mm;align-content:start}
+.calc h3,.offer h3{font-size:10.5pt}
+.calc table{border-collapse:collapse;width:100%;font-size:8.2pt}
+.calc td{padding:.8mm 0;border-bottom:1px solid var(--line)}
+.calc td.r{text-align:right;font-family:var(--f-mono);font-size:7.8pt;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:3mm}
+.calc tr.sum td{border-bottom:0;border-top:1.5px solid var(--ink);font-weight:700}
+.calc tr.sum td.r{color:var(--accent)}
+.calc .fine{font-size:7.4pt;color:var(--muted);line-height:1.35}
+
+.offer{display:grid;gap:2.6mm;align-content:start}
+.risk{border-left:2.5px solid var(--accent);padding:.5mm 0 .5mm 3.5mm;display:grid;gap:1.2mm}
+.risk ul{margin:0;padding-left:3.6mm;font-size:8.3pt;display:grid;gap:.6mm}
+.cta{background:var(--accent);color:#fff;border-radius:2mm;padding:3.4mm 4mm;display:grid;gap:1.3mm}
+.cta .eyebrow{color:#cdd7ff}
+.cta h3{font-size:11.5pt;color:#fff}
+.cta p{font-size:8.3pt;color:#e6ebff}
+.contact{font:500 8pt/1.5 var(--f-mono);color:#fff}
+
+footer{margin-top:auto;display:flex;justify-content:space-between;font-size:7pt;color:var(--muted);border-top:1px solid var(--line);padding-top:2mm}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <span class="eyebrow">KI-Angebotsautomatisierung · Maschinen- und Anlagenbau</span>
+    <span class="logo">[ IHR LOGO ]</span>
+  </div>
+
+  <section class="hero">
+    <h1>Ihr Vertrieb soll verkaufen.<br><em>Nicht Anfragen abtippen.</em></h1>
+    <p class="sub">Wir automatisieren den Weg von der Kundenanfrage bis zum fertigen Angebot. Ihr Team braucht rund <b>60&nbsp;% weniger Zeit pro Angebot</b>, macht weniger Fehler und antwortet Kunden schneller als der Wettbewerb.</p>
+  </section>
+
+  <section class="problem">
+    <span class="eyebrow">Das Problem</span>
+    <h2>Ihre Angebotserstellung ist teuer, langsam und hängt an wenigen Köpfen</h2>
+    <div class="pains">
+      <div class="pain"><span class="v">6&nbsp;h</span><span class="l">Handarbeit pro Angebot: lesen, klären, konfigurieren, schreiben</span></div>
+      <div class="pain"><span class="v">2,7&nbsp;Mio.&nbsp;€</span><span class="l">Prozesskosten pro Jahr bei 6.000 Angeboten</span></div>
+      <div class="pain"><span class="v">8&nbsp;%</span><span class="l">der Angebote fehlerhaft: Nacharbeit, falsche Preise</span></div>
+      <div class="pain"><span class="v">Tage</span><span class="l">bis zur Antwort. Wer zuerst anbietet, gewinnt öfter.</span></div>
+    </div>
+  </section>
+
+  <section class="solution">
+    <span class="eyebrow">Unser Versprechen</span>
+    <h2>Anfrage rein, prüffertiges Angebot raus</h2>
+    <div class="steps">
+      <div class="step"><span class="k">SCHRITT 1</span><h3>Anfrage verstehen</h3><p>Die KI liest E-Mails, Lastenhefte und Stücklisten und erfasst alle Anforderungen.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><span class="k">SCHRITT 2</span><h3>Konfigurieren, kalkulieren</h3><p>Abgebildet im Produktmodell, bepreist nach Ihren Regeln. Unklares wird markiert, nicht geraten.</p></div>
+      <div class="arrow">→</div>
+      <div class="step last"><span class="k">SCHRITT 3</span><h3>Prüfen und freigeben</h3><p>Ihr Innendienst prüft den fertigen Entwurf. Kein Angebot geht ohne Menschen raus.</p></div>
+    </div>
+    <p class="promise-line">Arbeitet mit Ihrem ERP und CRM. <b>Das Wissen Ihrer Experten steckt danach im System, nicht nur in ihren Köpfen.</b></p>
+  </section>
+
+  <section class="roles">
+    <span class="eyebrow">Was das für Sie bedeutet</span>
+    <div class="role-grid">
+      <div class="role"><span class="who">CEO · Wachstum</span><h3>Mehr Aufträge mit demselben Team</h3><span class="big">+2,7&nbsp;Mio.&nbsp;€</span><ul><li>Umsatz je Prozentpunkt mehr Abschlussquote</li><li>Schneller beim Kunden als der Wettbewerb</li></ul></div>
+      <div class="role"><span class="who">CFO · Rendite</span><h3>Investition in 12 Monaten zurück</h3><span class="big">1,2&nbsp;Mio.&nbsp;€</span><ul><li>Einsparung pro Jahr bei voller Wirkung</li><li>212&nbsp;% ROI über 3 Jahre</li></ul></div>
+      <div class="role"><span class="who">COO / Vertriebsleitung</span><h3>Kapazität ohne Neueinstellung</h3><span class="big">13&nbsp;FTE</span><ul><li>Kapazität frei für Kunden und Nachfassen</li><li>70&nbsp;% weniger Nacharbeit</li></ul></div>
+    </div>
+  </section>
+
+  <section class="bottom">
+    <div class="calc">
+      <span class="eyebrow">Beispielrechnung</span>
+      <h3>Maschinenbauer mit 6.000 Angeboten pro Jahr</h3>
+      <table>
+        <tr><td>Aufwand heute: 6.000 × 6&nbsp;h</td><td class="r">36.000&nbsp;h</td></tr>
+        <tr><td>davon eingespart: 60&nbsp;%</td><td class="r">21.600&nbsp;h</td></tr>
+        <tr><td>× 70&nbsp;% kostenwirksam × 75&nbsp;€/h</td><td class="r">1.134.000&nbsp;€</td></tr>
+        <tr><td>+ weniger Nacharbeit (480 × 70&nbsp;% × 3&nbsp;h × 75&nbsp;€)</td><td class="r">75.600&nbsp;€</td></tr>
+        <tr><td>= Einsparung pro Jahr</td><td class="r">1.209.600&nbsp;€</td></tr>
+        <tr><td>− Investition einmalig / laufend p. a.</td><td class="r">400 T€ / 170 T€</td></tr>
+        <tr class="sum"><td>Netto-Nutzen über 3 Jahre</td><td class="r">1,93&nbsp;Mio.&nbsp;€</td></tr>
+      </table>
+      <p class="fine">Nur Kosteneinsparung, ohne Umsatzeffekt. Hochlauf 50 / 85 / 100&nbsp;%. Amortisation nach 12 Monaten. Annahmen beispielhaft.</p>
+    </div>
+
+    <div class="offer">
+      <div class="risk">
+        <span class="eyebrow">Einstieg ohne Risiko</span>
+        <h3>90-Tage-Pilot mit einer Produktlinie</h3>
+        <ul>
+          <li>Erfolgskriterien legen wir vorher gemeinsam fest</li>
+          <li>Messung an Ihren echten Anfragen, nicht an einer Demo</li>
+          <li>Über den Rollout entscheiden Sie erst danach</li>
+        </ul>
+      </div>
+      <div class="cta">
+        <span class="eyebrow">Nächster Schritt</span>
+        <h3>30 Minuten Potenzialanalyse mit Ihren Zahlen</h3>
+        <p>Sie nennen uns Angebotsvolumen und Aufwand. Wir zeigen Ihnen Einsparung und Amortisation für Ihr Unternehmen.</p>
+        <div class="contact">[Vorname Nachname] · [Telefon]<br>[E-Mail] · [Website]</div>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>[Firmenname] · KI-gestützte Angebotsautomatisierung (CPQ)</span><span>Stand Oktober 2026</span></footer>
+</div>
+</body>
+</html>
