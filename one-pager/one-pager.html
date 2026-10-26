@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>One Pager Angebotsautomatisierung</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
 <style>
-/* Layout: A4 hoch, in fünf Sekunden lesbar: Vorher/Nachher -> Problem -> Ablaufbild -> Nutzen je Rolle -> Amortisationskurve + Pilot + nächster Schritt */
+/* Layout: A4 hoch. Dunkles Hero-Band mit Illustration -> großer Vergleich Heute / Mit uns -> vier Nutzen-Kacheln -> Potenzial-Formel zum Ausfüllen + Pilot + nächster Schritt */
 :root{
-  --ink:#141c2b; --muted:#5b6578; --line:#dfe3ea; --paper:#ffffff; --tint:#f3f5f9;
-  --accent:#2747c4; --accent-soft:#e8ecfb; --pain:#c2412f; --good:#1d7a4f;
+  --ink:#121a2e; --muted:#5b6578; --line:#e2e6ee; --paper:#ffffff; --tint:#f4f6fb;
+  --navy:#0d1633; --accent:#2f54e0; --accent-2:#6f8cff; --glow:#8fd3ff;
+  --pain:#d0473a; --pain-soft:#fdf0ee; --good:#18a06a;
   --f-display:"Archivo",Arial,sans-serif;
   --f-body:"Source Sans 3",Arial,sans-serif;
   --f-mono:"JetBrains Mono",Consolas,monospace;
@@ -17,235 +18,254 @@
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--paper);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font:9.2pt/1.36 var(--f-body)}
-.page{width:210mm;height:297mm;padding:11mm 14mm 8mm;display:flex;flex-direction:column;gap:4.4mm;overflow:hidden}
-h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.1;text-wrap:balance}
+.page{width:210mm;height:297mm;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.in{padding-left:14mm;padding-right:14mm}
+.page>*{flex:none}
+h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.08;text-wrap:balance}
 p{margin:0}
-.eyebrow{font:600 7.2pt/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.ic{width:6mm;height:6mm;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-
-.top{display:flex;justify-content:space-between;align-items:center}
-.logo{border:1px dashed var(--muted);color:var(--muted);font:600 7.5pt var(--f-mono);padding:2mm 4mm;border-radius:1.5mm;letter-spacing:.08em}
+.eyebrow{font:600 7.2pt/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.ic{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:6mm;align-items:center}
-.hero-text{display:grid;gap:2.6mm}
-.hero h1{font-size:22pt;font-weight:800;letter-spacing:-.015em}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero .sub{font-size:10.4pt;line-height:1.4}
-.ba{background:var(--tint);border-radius:2.5mm;padding:4mm 4.5mm;display:grid;gap:2.6mm;position:relative}
-.ba .cap{font:600 7.2pt var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.ba-row{display:grid;gap:1mm}
-.ba-row .lbl{font-size:8.4pt;font-weight:600;display:flex;justify-content:space-between}
-.ba-row .lbl b{font:800 11pt var(--f-display)}
-.track{height:5mm;border-radius:1.2mm;background:#fff}
-.fill{height:100%;border-radius:1.2mm}
-.fill.old{width:100%;background:repeating-linear-gradient(135deg,var(--pain) 0 2mm,#d4604f 2mm 4mm)}
-.fill.new{width:40%;background:var(--accent)}
-.badge{font:800 17pt/1 var(--f-display);color:var(--accent)}
-.ba-head{display:flex;justify-content:space-between;align-items:center}
-.ba .note{font-size:7.8pt;color:var(--muted)}
+.hero{position:relative;color:#fff;padding-block:9mm 8mm;overflow:hidden;
+  background:
+    radial-gradient(60mm 45mm at 82% 40%,rgba(143,211,255,.35),transparent 70%),
+    radial-gradient(80mm 60mm at 10% 110%,rgba(111,140,255,.35),transparent 70%),
+    linear-gradient(135deg,#0b1430 0%,#152a78 55%,#2f54e0 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) .35mm,transparent .4mm);background-size:4.2mm 4.2mm;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 55%,#000 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 55%,#000 100%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.2mm;background:linear-gradient(90deg,var(--glow),var(--accent-2),transparent)}
+.hero .row{position:relative;display:grid;grid-template-columns:1.6fr 1fr;gap:4mm;align-items:center}
+.topline{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:5mm}
+.topline .eyebrow{color:var(--glow)}
+.logo{border:1px dashed rgba(255,255,255,.55);color:rgba(255,255,255,.8);font:600 7.5pt var(--f-mono);padding:2mm 4mm;border-radius:1.5mm;letter-spacing:.08em}
+.hero h1{font-size:22pt;font-weight:900;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--glow),#c9d6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:10.4pt;line-height:1.42;color:#dbe3ff;margin-top:3mm;max-width:105mm}
+.chips{display:flex;flex-wrap:wrap;gap:2mm;margin-top:4mm}
+.chip{font:600 7.6pt var(--f-body);padding:1.3mm 3mm;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;display:flex;gap:1.4mm;align-items:center}
+.chip svg{width:3.4mm;height:3.4mm;color:var(--glow)}
+.illu svg{width:100%;height:auto;display:block;filter:drop-shadow(0 3mm 6mm rgba(0,0,0,.35))}
 
-/* Problem */
-.problem{background:var(--ink);color:#fff;border-radius:2.5mm;padding:4mm 6mm;display:grid;gap:3mm}
-.problem .eyebrow{color:#9fb2ff}
-.problem h2{font-size:12.5pt;font-weight:700}
-.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
-.pain{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;gap:1mm 2.6mm;align-items:start}
-.pain .ico{width:10mm;height:10mm;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#ff9a8a;grid-row:span 2}
-.pain .v{font:800 15pt/1 var(--f-display)}
-.pain .l{font-size:8pt;line-height:1.3;color:#cfd6e4}
+/* Vergleich */
+.compare{padding-top:6mm;display:grid;gap:3mm}
+.compare h2{font-size:14pt}
+.vs{display:grid;grid-template-columns:1fr 11mm 1fr;align-items:stretch}
+.side{border-radius:3mm;padding:4mm 4.5mm;display:grid;gap:2.2mm;align-content:start;position:relative}
+.side.old{background:var(--pain-soft);border:1px solid #f4d3ce}
+.side.new{color:#fff;background:linear-gradient(150deg,#1d36a8 0%,#2f54e0 60%,#5574f0 100%);box-shadow:0 2.5mm 7mm rgba(47,84,224,.35)}
+.side .tag{display:flex;justify-content:space-between;align-items:center}
+.side .tag span{font:700 7.4pt var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.side.old .tag span{color:var(--pain)}
+.side.new .tag span{color:var(--glow)}
+.side h3{font-size:11.5pt}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1.5mm;position:relative}
+.steps::before{content:"";position:absolute;left:3.1mm;top:3mm;bottom:3mm;width:0;border-left:.5mm dashed #e7a79f}
+.side.new .steps::before{border-left:.5mm solid rgba(255,255,255,.45)}
+.steps li{display:grid;grid-template-columns:6.2mm 1fr;gap:2.6mm;align-items:center;position:relative}
+.dot{width:6.2mm;height:6.2mm;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:.4mm solid #ecb4ac;color:var(--pain)}
+.dot svg{width:3.6mm;height:3.6mm}
+.side.new .dot{width:6.2mm;height:6.2mm;background:rgba(255,255,255,.16);border:.4mm solid rgba(255,255,255,.6);color:#fff}
+.steps b{display:block;font-size:8.9pt;line-height:1.2}
+.steps small{display:block;font-size:7.8pt;line-height:1.25;color:var(--muted)}
+.side.new .steps b{font-size:9.8pt}
+.side.new .steps small{color:#d7e0ff;font-size:8.2pt}
+.side.new .steps{gap:3.2mm}
+.loop{display:flex;align-items:center;gap:1.6mm;font:600 7.6pt var(--f-body);color:var(--pain)}
+.loop svg{width:5mm;height:5mm}
+.done{display:flex;align-items:center;gap:2mm;background:rgba(255,255,255,.14);border-radius:2mm;padding:2mm 3mm;font-weight:700;font-size:9pt}
+.done svg{width:5.4mm;height:5.4mm;color:#7ff0bf}
+.mid{display:flex;align-items:center;justify-content:center}
+.mid div{width:9mm;height:9mm;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 1.5mm 4mm rgba(18,26,46,.15);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.mid svg{width:5mm;height:5mm}
 
-/* Ablauf */
-.solution{display:grid;gap:2mm}
-.solution h2{font-size:12.5pt}
-.flow svg{width:100%;height:auto;display:block}
-.flow text{font-family:var(--f-body)}
-
-/* Rollen */
-.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
-.role{background:var(--tint);border-radius:2mm;padding:3mm 3.6mm;display:grid;grid-template-columns:auto 1fr;gap:.8mm 3mm;align-items:center}
-.role .ico{width:11mm;height:11mm;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;grid-row:span 3}
-.role .who{font:600 7pt var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.role .big{font:800 16pt/1 var(--f-display);color:var(--accent)}
-.role .l{font-size:8.2pt;line-height:1.3}
+/* Nutzen */
+.benefits{padding-top:5mm;display:grid;grid-template-columns:repeat(4,1fr);gap:3.5mm}
+.ben{display:grid;gap:1.6mm;align-content:start}
+.ben .ico{width:11mm;height:11mm;border-radius:3mm;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(140deg,var(--accent) 0%,var(--accent-2) 100%);box-shadow:0 1.6mm 4mm rgba(47,84,224,.3)}
+.ben .ico svg{width:6mm;height:6mm}
+.ben h3{font-size:10.4pt}
+.ben p{font-size:8.3pt;line-height:1.32;color:var(--muted)}
 
 /* Unten */
-.bottom{display:grid;grid-template-columns:1.1fr 1fr;gap:5mm;flex:1;min-height:0}
-.chart{border:1px solid var(--line);border-radius:2mm;padding:3mm 3.6mm;display:grid;gap:1.6mm;align-content:start}
-.chart h3,.pilot h3{font-size:10.6pt}
-.chart svg{width:100%;height:auto;display:block}
-.chart svg text{font-family:var(--f-mono);font-size:9px;fill:var(--muted)}
-.chart .fine{font-size:7.2pt;color:var(--muted);line-height:1.35}
-.side{display:grid;gap:3mm;align-content:start}
-.pilot{display:grid;gap:2mm}
-.tl{display:grid;grid-template-columns:repeat(3,1fr);position:relative;margin-top:1mm}
-.tl::before{content:"";position:absolute;left:16%;right:16%;top:1.9mm;height:.6mm;background:var(--accent-soft)}
-.tl div{display:grid;gap:.8mm;justify-items:center;text-align:center;position:relative;font-size:7.8pt;line-height:1.25;padding:0 1mm}
-.tl i{width:4.4mm;height:4.4mm;border-radius:50%;background:#fff;border:.6mm solid var(--accent)}
-.tl div:last-child i{background:var(--accent)}
-.tl b{font:700 8.2pt var(--f-display)}
-.cta{background:var(--accent);color:#fff;border-radius:2mm;padding:3.6mm 4mm;display:grid;gap:1.4mm}
-.cta .eyebrow{color:#cdd7ff}
-.cta h3{font-size:12pt;color:#fff}
-.cta p{font-size:8.2pt;color:#e6ebff}
-.contact{font:500 8pt/1.5 var(--f-mono);color:#fff}
+.bottom{padding-top:5mm;display:grid;grid-template-columns:1.06fr 1fr;gap:5mm}
+.calc{background:var(--tint);border-radius:3mm;padding:4mm 4.5mm;display:grid;gap:2.6mm;align-content:start}
+.calc h3,.pilot h3{font-size:11pt}
+.formula{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:1.6mm;align-items:end}
+.inp{display:grid;gap:1mm}
+.inp .box{height:9mm;border-radius:1.8mm;background:#fff;border:.35mm dashed #aab4cc}
+.inp span{font-size:7.4pt;line-height:1.2;color:var(--muted);text-align:center}
+.op{font:800 13pt var(--f-display);color:var(--accent);padding-bottom:6.4mm}
+.result{display:grid;grid-template-columns:auto 1fr;gap:2.4mm;align-items:center}
+.result .eq{font:800 15pt var(--f-display);color:var(--accent)}
+.result .box{height:11mm;border-radius:2mm;background:linear-gradient(135deg,#1d36a8,#2f54e0);color:#fff;display:flex;align-items:center;padding:0 3.5mm;font:700 9pt var(--f-display);gap:2mm}
+.result .box i{flex:1;height:0;border-bottom:.35mm dashed rgba(255,255,255,.6);margin-left:2mm;margin-top:3mm}
+.calc .fine{font-size:7.9pt;line-height:1.35;color:var(--muted)}
+.calc .fine b{color:var(--ink)}
 
-footer{display:flex;justify-content:space-between;font-size:7pt;color:var(--muted);border-top:1px solid var(--line);padding-top:2mm}
+.right{display:grid;gap:3.5mm;align-content:start}
+.pilot{display:grid;gap:2.2mm}
+.tl{display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.tl::before{content:"";position:absolute;left:16%;right:16%;top:2.6mm;height:.7mm;border-radius:1mm;background:linear-gradient(90deg,var(--accent-2),var(--accent))}
+.tl div{display:grid;gap:.8mm;align-content:start;justify-items:center;text-align:center;position:relative;font-size:7.8pt;line-height:1.25;padding:0 1mm;color:var(--muted)}
+.tl i{width:5.6mm;height:5.6mm;border-radius:50%;background:#fff;border:.7mm solid var(--accent);box-shadow:0 0 0 1.2mm rgba(47,84,224,.12)}
+.tl div:last-child i{background:var(--accent)}
+.tl b{font:700 8.4pt var(--f-display);color:var(--ink)}
+.cta{position:relative;overflow:hidden;border-radius:3mm;padding:4mm 4.5mm;display:grid;gap:1.4mm;color:#fff;
+  background:radial-gradient(40mm 30mm at 100% 0%,rgba(143,211,255,.45),transparent 70%),linear-gradient(135deg,#0b1430,#2f54e0);box-shadow:0 2.5mm 7mm rgba(13,22,51,.3)}
+.cta .eyebrow{color:var(--glow)}
+.cta h3{font-size:12.5pt}
+.cta p{font-size:8.3pt;color:#dbe3ff}
+.contact{font:500 8pt/1.55 var(--f-mono);color:#fff;margin-top:.6mm}
+
+footer{margin-top:auto;padding-block:2.5mm 7mm;display:flex;justify-content:space-between;font-size:7pt;color:var(--muted)}
+footer::before{content:none}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-  <symbol id="i-euro" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.6a4 4 0 1 0 0 6.8M7.5 11h6M7.5 13.2h6"/></symbol>
-  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9 16h-18z"/><path d="M12 10v4M12 16.8v.2"/></symbol>
-  <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M7 3h10M7 21h10M8 3v3l4 6-4 6v3M16 3v3l-4 6 4 6v3"/></symbol>
-  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15.5l2 2 4-4"/></symbol>
-  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2 .7 3.5 2.8 3.5 5.7"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
   <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 14.5h18M9 4v16"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M8 6.5h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15v3M8 18h.01M12 18h.01"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.7"/><path d="M20 4v4.7h-4.7"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.3"/><path d="M4 20v-4.7h4.7"/></symbol>
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 10"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2 .7 3.5 2.8 3.5 5.7"/></symbol>
+  <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3h1V4z"/><path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3h-1V4z"/></symbol>
 </svg>
 
 <div class="page">
 
-  <div class="top">
-    <span class="eyebrow">KI-Angebotsautomatisierung · Maschinen- und Anlagenbau</span>
-    <span class="logo">[ IHR LOGO ]</span>
-  </div>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Ihr Vertrieb soll verkaufen.<br><em>Nicht Anfragen abtippen.</em></h1>
-      <p class="sub">Wir automatisieren den Weg von der Kundenanfrage bis zum fertigen Angebot. Weniger Aufwand, weniger Fehler, schneller beim Kunden.</p>
+  <section class="hero in">
+    <div class="topline">
+      <span class="eyebrow">KI-Angebotsautomatisierung · Maschinen- und Anlagenbau</span>
+      <span class="logo">[ IHR LOGO ]</span>
     </div>
-    <div class="ba" aria-label="Aufwand je Angebot: heute 6 Stunden, mit Automatisierung 2,4 Stunden">
-      <div class="ba-head"><span class="cap">Aufwand je Angebot</span><span class="badge">−60&nbsp;%</span></div>
-      <div class="ba-row"><span class="lbl">Heute <b>6,0&nbsp;h</b></span><div class="track"><div class="fill old"></div></div></div>
-      <div class="ba-row"><span class="lbl" style="width:52%">Mit uns <b style="color:var(--accent)">2,4&nbsp;h</b></span><div class="track"><div class="fill new"></div></div></div>
-      <span class="note">Beispielwert, im Pilot an Ihren Anfragen gemessen</span>
-    </div>
-  </section>
-
-  <section class="problem">
-    <span class="eyebrow">Das Problem</span>
-    <h2>Angebote sind teuer, langsam und hängen an wenigen Köpfen</h2>
-    <div class="pains">
-      <div class="pain"><span class="ico"><svg class="ic"><use href="#i-clock"/></svg></span><span class="v">6&nbsp;h</span><span class="l">Handarbeit pro Angebot</span></div>
-      <div class="pain"><span class="ico"><svg class="ic"><use href="#i-euro"/></svg></span><span class="v">2,7&nbsp;Mio.&nbsp;€</span><span class="l">Prozesskosten pro Jahr</span></div>
-      <div class="pain"><span class="ico"><svg class="ic"><use href="#i-alert"/></svg></span><span class="v">8&nbsp;%</span><span class="l">fehlerhafte Angebote</span></div>
-      <div class="pain"><span class="ico"><svg class="ic"><use href="#i-hourglass"/></svg></span><span class="v">Tage</span><span class="l">bis zur Antwort an den Kunden</span></div>
-    </div>
-  </section>
-
-  <section class="solution">
-    <span class="eyebrow">Unser Versprechen</span>
-    <h2>Anfrage rein, prüffertiges Angebot raus. Ihr Team gibt frei.</h2>
-    <div class="flow">
-      <svg viewBox="0 0 720 132" role="img" aria-label="Ablauf: E-Mail, Lastenheft und Stückliste gehen in die KI, daraus entsteht ein prüffertiges Angebot, Ihr Team gibt frei">
-        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2747c4"/></marker></defs>
-        <g font-size="12.5" fill="#141c2b">
-          <rect x="0" y="6" width="150" height="34" rx="7" fill="#f3f5f9"/>
-          <svg x="10" y="13" width="20" height="20" class="ic" style="color:#5b6578"><use href="#i-mail"/></svg>
-          <text x="38" y="28">E-Mail-Anfrage</text>
-          <rect x="0" y="49" width="150" height="34" rx="7" fill="#f3f5f9"/>
-          <svg x="10" y="56" width="20" height="20" class="ic" style="color:#5b6578"><use href="#i-file"/></svg>
-          <text x="38" y="71">PDF-Lastenheft</text>
-          <rect x="0" y="92" width="150" height="34" rx="7" fill="#f3f5f9"/>
-          <svg x="10" y="99" width="20" height="20" class="ic" style="color:#5b6578"><use href="#i-grid"/></svg>
-          <text x="38" y="114">Excel-Stückliste</text>
-        </g>
-        <g fill="none" stroke="#2747c4" stroke-width="1.6">
-          <path d="M152 23 C178 23 178 66 202 66" marker-end="url(#ar)"/>
-          <path d="M152 66 H202" marker-end="url(#ar)"/>
-          <path d="M152 109 C178 109 178 66 202 66" marker-end="url(#ar)"/>
-          <path d="M400 66 H460" marker-end="url(#ar)"/>
-          <path d="M546 66 H604" marker-end="url(#ar)"/>
-        </g>
-        <rect x="206" y="14" width="192" height="104" rx="10" fill="#2747c4"/>
-        <svg x="222" y="26" width="26" height="26" class="ic" style="color:#fff"><use href="#i-spark"/></svg>
-        <text x="256" y="45" font-family="Archivo,Arial" font-weight="700" font-size="15" fill="#fff">KI-Copilot</text>
-        <text x="222" y="72" font-size="11.5" fill="#e6ebff">liest und versteht die Anfrage</text>
-        <text x="222" y="89" font-size="11.5" fill="#e6ebff">konfiguriert im Produktmodell</text>
-        <text x="222" y="106" font-size="11.5" fill="#e6ebff">kalkuliert nach Ihren Preisregeln</text>
-        <path d="M466 10 h58 l20 20 v92 h-78 z" fill="#fff" stroke="#141c2b" stroke-width="1.4"/>
-        <path d="M524 10 v20 h20" fill="none" stroke="#141c2b" stroke-width="1.4"/>
-        <g stroke="#c9cfda" stroke-width="3" stroke-linecap="round"><path d="M478 46h40M478 58h52M478 70h46M478 82h52M478 94h30"/></g>
-        <text x="476" y="36" font-family="Archivo,Arial" font-weight="700" font-size="10" fill="#141c2b">ANGEBOT</text>
-        <circle cx="654" cy="52" r="30" fill="#e8f4ee" stroke="#1d7a4f" stroke-width="1.6"/>
-        <svg x="634" y="32" width="40" height="40" class="ic" style="color:#1d7a4f"><use href="#i-check"/></svg>
-        <text x="654" y="102" text-anchor="middle" font-family="Archivo,Arial" font-weight="700" font-size="12.5" fill="#141c2b">Ihr Team gibt frei</text>
-        <text x="654" y="118" text-anchor="middle" font-size="11" fill="#5b6578">kein Versand ohne Mensch</text>
-      </svg>
+    <div class="row">
+      <div>
+        <h1>Ihr Vertrieb soll verkaufen.<br><em>Nicht Anfragen abtippen.</em></h1>
+        <p class="sub">Wir automatisieren den Weg von der Kundenanfrage bis zum fertigen Angebot. Ihr Team prüft und gibt frei, den Rest erledigt die KI.</p>
+        <div class="chips">
+          <span class="chip"><svg class="ic"><use href="#i-mail"/></svg>E-Mail</span>
+          <span class="chip"><svg class="ic"><use href="#i-file"/></svg>PDF-Lastenheft</span>
+          <span class="chip"><svg class="ic"><use href="#i-grid"/></svg>Excel-Stückliste</span>
+        </div>
+      </div>
+      <div class="illu">
+        <svg viewBox="0 0 300 190" role="img" aria-label="Ungeordnete Anfragen werden durch KI zu einem fertigen, freigegebenen Angebot">
+          <defs>
+            <radialGradient id="core" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#8fd3ff"/><stop offset="1" stop-color="#2f54e0" stop-opacity="0"/></radialGradient>
+            <linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#8fd3ff" stop-opacity="0"/><stop offset="1" stop-color="#8fd3ff"/></linearGradient>
+          </defs>
+          <!-- Chaos links -->
+          <g transform="rotate(-12 50 95)"><rect x="14" y="40" width="62" height="80" rx="5" fill="#ffffff" fill-opacity=".14" stroke="#ffffff" stroke-opacity=".5"/><path d="M24 58h40M24 68h32M24 78h38" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/></g>
+          <g transform="rotate(9 60 110)"><rect x="30" y="62" width="62" height="80" rx="5" fill="#ffffff" fill-opacity=".18" stroke="#ffffff" stroke-opacity=".6"/><path d="M40 80h42M40 90h30M40 100h38M40 110h22" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/></g>
+          <g transform="rotate(-3 50 120)"><rect x="8" y="96" width="70" height="56" rx="5" fill="#ffffff" fill-opacity=".22" stroke="#ffffff" stroke-opacity=".7"/><path d="M8 112h70M8 128h70M30 96v56" stroke="#fff" stroke-opacity=".55" stroke-width="1.6"/></g>
+          <text x="84" y="52" font-family="Archivo,Arial" font-weight="900" font-size="22" fill="#ff8b7f">?</text>
+          <text x="2" y="80" font-family="Archivo,Arial" font-weight="900" font-size="16" fill="#ff8b7f">?</text>
+          <!-- Strahl -->
+          <rect x="96" y="93" width="58" height="4" rx="2" fill="url(#beam)"/>
+          <!-- KI-Kern -->
+          <circle cx="160" cy="95" r="34" fill="url(#core)"/>
+          <circle cx="160" cy="95" r="17" fill="#ffffff"/>
+          <svg x="149" y="84" width="22" height="22" class="ic" style="color:#2f54e0"><use href="#i-spark"/></svg>
+          <rect x="178" y="93" width="34" height="4" rx="2" fill="#8fd3ff"/>
+          <path d="M210 87l8 8-8 8" fill="none" stroke="#8fd3ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Angebot rechts -->
+          <rect x="222" y="34" width="72" height="104" rx="6" fill="#ffffff"/>
+          <rect x="222" y="34" width="72" height="18" rx="6" fill="#2f54e0"/>
+          <rect x="222" y="46" width="72" height="6" fill="#2f54e0"/>
+          <text x="230" y="47" font-family="Archivo,Arial" font-weight="800" font-size="9" fill="#fff" letter-spacing=".5">ANGEBOT</text>
+          <path d="M232 64h46M232 74h52M232 84h40M232 94h50" stroke="#d3daea" stroke-width="3.2" stroke-linecap="round"/>
+          <rect x="232" y="104" width="52" height="12" rx="3" fill="#e8ecfb"/>
+          <circle cx="288" cy="134" r="15" fill="#18a06a" stroke="#ffffff" stroke-width="3"/>
+          <path d="M281 134l5 5 9-10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
     </div>
   </section>
 
-  <section class="role-grid" aria-label="Nutzen je Rolle">
-    <div class="role"><span class="ico"><svg class="ic"><use href="#i-trend"/></svg></span><span class="who">CEO · Wachstum</span><span class="big">+2,7&nbsp;Mio.&nbsp;€</span><span class="l">Umsatz je Prozentpunkt mehr Abschlussquote</span></div>
-    <div class="role"><span class="ico"><svg class="ic"><use href="#i-cal"/></svg></span><span class="who">CFO · Rendite</span><span class="big">12&nbsp;Monate</span><span class="l">bis zur Amortisation, 212&nbsp;% ROI in 3&nbsp;Jahren</span></div>
-    <div class="role"><span class="ico"><svg class="ic"><use href="#i-users"/></svg></span><span class="who">COO · Vertrieb</span><span class="big">13&nbsp;FTE</span><span class="l">Kapazität frei, ohne Neueinstellung</span></div>
+  <section class="compare in">
+    <span class="eyebrow">Auf einen Blick</span>
+    <h2>Heute fünf Handgriffe und eine Schleife. Mit uns drei Schritte.</h2>
+    <div class="vs">
+      <div class="side old">
+        <div class="tag"><span>Heute</span></div>
+        <h3>Manuell, langsam, fehleranfällig</h3>
+        <ul class="steps">
+          <li><span class="dot"><svg class="ic"><use href="#i-eye"/></svg></span><div><b>Anfrage lesen und deuten</b><small>E-Mail, PDF und Excel in jedem Format</small></div></li>
+          <li><span class="dot"><svg class="ic"><use href="#i-phone"/></svg></span><div><b>Rückfragen bei der Technik</b><small>warten, bis der Experte Zeit hat</small></div></li>
+          <li><span class="dot"><svg class="ic"><use href="#i-keyboard"/></svg></span><div><b>Daten ins ERP abtippen</b><small>Position für Position</small></div></li>
+          <li><span class="dot"><svg class="ic"><use href="#i-calc"/></svg></span><div><b>Preise in Excel kalkulieren</b><small>jede Liste ein bisschen anders</small></div></li>
+          <li><span class="dot"><svg class="ic"><use href="#i-pen"/></svg></span><div><b>Angebot schreiben</b><small>Texte und Anlagen zusammensuchen</small></div></li>
+        </ul>
+        <div class="loop"><svg class="ic"><use href="#i-loop"/></svg>Fehler finden, korrigieren, neu senden</div>
+      </div>
+      <div class="mid"><div><svg class="ic"><use href="#i-arrow"/></svg></div></div>
+      <div class="side new">
+        <div class="tag"><span>Mit uns</span></div>
+        <h3>Automatisch vorbereitet, vom Menschen freigegeben</h3>
+        <ul class="steps">
+          <li><span class="dot"><svg class="ic"><use href="#i-spark"/></svg></span><div><b>KI erfasst die Anfrage</b><small>liest E-Mail, PDF und Excel und zieht alle Anforderungen heraus</small></div></li>
+          <li><span class="dot"><svg class="ic"><use href="#i-sliders"/></svg></span><div><b>Konfiguriert und kalkuliert</b><small>nach Ihrem Produktmodell und Ihren Preisregeln; Unklares wird markiert</small></div></li>
+          <li><span class="dot"><svg class="ic"><use href="#i-users"/></svg></span><div><b>Ihr Team prüft und gibt frei</b><small>kein Angebot geht ohne Menschen raus</small></div></li>
+        </ul>
+        <div class="done"><svg class="ic"><use href="#i-check"/></svg>Prüffertiges Angebot statt leerer Vorlage</div>
+      </div>
+    </div>
   </section>
 
-  <section class="bottom">
-    <div class="chart">
-      <span class="eyebrow">Beispielrechnung</span>
-      <h3>Nach 12 Monaten ist Ihr Geld zurück</h3>
-      <svg id="cf" viewBox="0 0 340 222" role="img" aria-label="Kumulierter Netto-Cashflow: Start bei minus 0,4 Millionen Euro, Break-even nach 12 Monaten, plus 1,93 Millionen Euro nach 36 Monaten"></svg>
-      <p class="fine">Kumulierter Netto-Cashflow. Basis: 6.000 Angebote pro Jahr, 6&nbsp;h je Angebot, 75&nbsp;€/h, 60&nbsp;% Zeitersparnis (davon 70&nbsp;% kostenwirksam). Einsparung 1,21&nbsp;Mio.&nbsp;€ pro Jahr. Investition 400&nbsp;T€ einmalig, 170&nbsp;T€ pro Jahr. Hochlauf 50 / 85 / 100&nbsp;%. Ohne Umsatzeffekt.</p>
+  <section class="benefits in" aria-label="Nutzen">
+    <div class="ben"><span class="ico"><svg class="ic"><use href="#i-bolt"/></svg></span><h3>Schneller beim Kunden</h3><p>Antworten, solange der Kunde noch vergleicht.</p></div>
+    <div class="ben"><span class="ico"><svg class="ic"><use href="#i-shield"/></svg></span><h3>Weniger Fehler</h3><p>Regeln statt Copy-and-paste, Prüfung vor dem Versand.</p></div>
+    <div class="ben"><span class="ico"><svg class="ic"><use href="#i-users"/></svg></span><h3>Entlastetes Team</h3><p>Zeit für Kunden und Nachfassen statt für Abtippen.</p></div>
+    <div class="ben"><span class="ico"><svg class="ic"><use href="#i-brain"/></svg></span><h3>Wissen gesichert</h3><p>Expertenwissen steckt im System, nicht nur in Köpfen.</p></div>
+  </section>
+
+  <section class="bottom in">
+    <div class="calc">
+      <span class="eyebrow">Ihr Potenzial, mit Ihren Zahlen</span>
+      <h3>Was kostet Sie die Angebotserstellung heute?</h3>
+      <div class="formula">
+        <div class="inp"><div class="box"></div><span>Angebote pro Jahr</span></div>
+        <div class="op">×</div>
+        <div class="inp"><div class="box"></div><span>Stunden je Angebot</span></div>
+        <div class="op">×</div>
+        <div class="inp"><div class="box"></div><span>Stundensatz in €</span></div>
+      </div>
+      <div class="result"><span class="eq">=</span><div class="box">Ihre Angebotskosten pro Jahr<i></i>€</div></div>
+      <p class="fine"><b>Keine Musterrechnung, keine Versprechen aus dem Prospekt.</b> Wie viel davon Sie einsparen, messen wir im Pilot an Ihren echten Anfragen.</p>
     </div>
 
-    <div class="side">
+    <div class="right">
       <div class="pilot">
         <span class="eyebrow">Einstieg ohne Risiko</span>
-        <h3>90-Tage-Pilot mit einer Produktlinie</h3>
+        <h3>Pilot mit einer Produktlinie</h3>
         <div class="tl">
-          <div><i></i><b>Tag 1</b>Erfolgskriterien gemeinsam festlegen</div>
-          <div><i></i><b>Tag 2 bis 89</b>Messung an Ihren echten Anfragen</div>
-          <div><i></i><b>Tag 90</b>Sie entscheiden über den Rollout</div>
+          <div><i></i><b>Start</b>Ziele und Messgrößen gemeinsam festlegen</div>
+          <div><i></i><b>Pilot</b>Bearbeitungszeit, Fehler und Antwortzeit messen</div>
+          <div><i></i><b>Ergebnis</b>Sie entscheiden anhand Ihrer Zahlen</div>
         </div>
       </div>
       <div class="cta">
         <span class="eyebrow">Nächster Schritt</span>
-        <h3>30 Minuten Potenzialanalyse mit Ihren Zahlen</h3>
-        <p>Sie nennen Angebotsvolumen und Aufwand. Wir zeigen Einsparung und Amortisation für Ihr Unternehmen.</p>
+        <h3>30 Minuten Potenzialanalyse</h3>
+        <p>Wir füllen die Rechnung links gemeinsam aus und zeigen, wo bei Ihnen der größte Hebel liegt.</p>
         <div class="contact">[Vorname Nachname] · [Telefon]<br>[E-Mail] · [Website]</div>
       </div>
     </div>
   </section>
 
-  <footer><span>[Firmenname] · KI-gestützte Angebotsautomatisierung (CPQ)</span><span>Stand Oktober 2026</span></footer>
+  <footer class="in"><span>[Firmenname] · KI-gestützte Angebotsautomatisierung (CPQ)</span><span>Stand Oktober 2026</span></footer>
 </div>
-
-<script>
-// Kumulierter Cashflow aus dem Basisszenario des Business Case
-(function(){
-  const brutto=1209600, laufend=170000, einmal=400000, ramp=[.5,.85,1];
-  const s=[-einmal]; let c=-einmal;
-  for(let m=1;m<=36;m++){c+=(brutto*ramp[Math.ceil(m/12)-1]-laufend)/12;s.push(c)}
-  const W=340,H=222,L=40,R=10,T=28,B=20,min=-500000,max=2000000;
-  const x=i=>L+(W-L-R)*i/36, y=v=>T+(H-T-B)*(max-v)/(max-min);
-  let g='';
-  [-0.5,0,0.5,1,1.5,2].forEach(v=>{const yy=y(v*1e6);
-    g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="${v===0?'#141c2b':'#e6e9ef'}" stroke-width="${v===0?1:.6}"/>`+
-       `<text x="${L-5}" y="${yy+3}" text-anchor="end">${v.toLocaleString('de-DE')}</text>`});
-  g+=`<text x="${L-5}" y="${T-14}" text-anchor="end">Mio. €</text>`;
-  [0,12,24,36].forEach(m=>g+=`<text x="${x(m)}" y="${H-6}" text-anchor="middle">${m?'M'+m:'Start'}</text>`);
-  const pts=s.map((v,i)=>`${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
-  g+=`<clipPath id="neg"><rect x="${L}" y="${y(0)}" width="${W}" height="${H}"/></clipPath><clipPath id="pos"><rect x="${L}" y="0" width="${W}" height="${y(0)}"/></clipPath>`;
-  const area=`<polygon points="${x(0)},${y(0)} ${pts} ${x(36)},${y(0)}"`;
-  g+=area+` fill="#c2412f" fill-opacity=".18" clip-path="url(#neg)"/>`+area+` fill="#2747c4" fill-opacity=".14" clip-path="url(#pos)"/>`;
-  g+=`<polyline points="${pts}" fill="none" stroke="#2747c4" stroke-width="2.2" stroke-linejoin="round"/>`;
-  const be=s.findIndex(v=>v>=0);
-  g+=`<line x1="${x(be)}" x2="${x(be)}" y1="${y(0)}" y2="${T+6}" stroke="#1d7a4f" stroke-dasharray="3 2"/>`+
-     `<circle cx="${x(be)}" cy="${y(0)}" r="3.5" fill="#1d7a4f"/>`+
-     `<text x="${x(be)+5}" y="${T+12}" style="fill:#1d7a4f;font-weight:600">Break-even M${be}</text>`;
-  g+=`<circle cx="${x(36)}" cy="${y(s[36])}" r="3.5" fill="#2747c4"/>`+
-     `<text x="${x(36)-6}" y="${y(s[36])-7}" text-anchor="end" style="fill:#2747c4;font-weight:600;font-size:11px">+1,93 Mio. €</text>`+
-     `<text x="${x(be)+8}" y="${y(0)+15}" style="fill:#c2412f;font-weight:600">Start: −0,4 Mio. € Invest</text>`;
-  document.getElementById('cf').innerHTML=g;
-})();
-</script>
 </body>
 </html>
