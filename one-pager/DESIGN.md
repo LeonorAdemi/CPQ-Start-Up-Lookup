@@ -11,3 +11,11 @@ Stilrichtung: technischer KI-Look für Industrie und Maschinenbau, inspiriert vo
 Box-Rahmen der Merkmal-Kacheln und der Konsole: Box-Utility aus [WebTUI](https://github.com/webtui/webtui) (`packages/css/src/utils/box.css`, MIT-Lizenz, © 2025 WebTUI), inline übernommen.
 
 PDF neu erzeugen: `one-pager.html` mit Chromium/Playwright als A4 drucken (`printBackground: true`).
+
+## Name und Logo (Entwurf)
+
+**Quoro** – aus *Quote* (Angebot) und *Chor/Kollegium*: ein Team aus KI-Agenten, das gemeinsam Angebote erstellt.
+Bildmarke: ein „Q“, dessen Schweif aus drei parallelen Linien unterschiedlicher Länge besteht – die parallel arbeitenden Agenten.
+Schriftzug: Manrope SemiBold (SIL Open Font License), in Pfade umgewandelt. Dateien in `logo/`, neu erzeugen mit `python3 logo/build_logo.py <Manrope-SemiBold.ttf> logo/`.
+
+Vor Verwendung prüfen: Marken- und Domain-Recherche (DPMA/EUIPO, quoro.de/.ai/.com). Eine kurze Websuche fand keinen Anbieter namens „Quoro“, aber ähnlich klingende Firmen (Qoro Quantum, Quorso).
