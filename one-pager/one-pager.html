@@ -41,17 +41,17 @@ sup{font-size:.68em;line-height:0}
 .c.tl{left:-.8mm;top:-.8mm}.c.tr{right:-.8mm;top:-.8mm}.c.bl{left:-.8mm;bottom:-.8mm}.c.br{right:-.8mm;bottom:-.8mm}
 
 /* Kopf */
-.top{display:flex;justify-content:space-between;align-items:center;padding-top:6mm}
+.top{display:flex;justify-content:space-between;align-items:center;padding-top:9mm}
 .logo{border:1px dashed var(--warm-2);color:var(--warm-1);font:500 7pt var(--f-mono);padding:1.4mm 3mm;letter-spacing:.06em}
 .nav{display:flex;gap:5mm;font:500 7pt var(--f-mono);letter-spacing:.06em}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:1fr 88mm;gap:5mm;align-items:center;padding-top:3mm}
-.hero-text{display:grid;gap:3.2mm;align-content:center}
+.hero{display:grid;grid-template-columns:1fr 90mm;gap:6mm;align-items:center;padding-top:8mm}
+.hero-text{display:grid;gap:4.4mm;align-content:center}
 .ann{justify-self:start;display:flex;align-items:center;gap:2mm;background:#fff;border:1px solid var(--warm-3);padding:1.4mm 3mm;font:500 7.6pt var(--f-sans)}
 .ann i{width:1.6mm;height:1.6mm;border-radius:50%;background:var(--blue)}
-.hero h1{font-size:21pt;color:var(--blue);line-height:1.08;letter-spacing:-.02em}
-.hero .sub{font-size:9.4pt;line-height:1.45;max-width:96mm}
+.hero h1{font-size:24pt;color:var(--blue);line-height:1.08;letter-spacing:-.02em}
+.hero .sub{font-size:10pt;line-height:1.45;max-width:96mm}
 .tempo{display:flex;align-items:center;gap:1.8mm;flex-wrap:nowrap}
 .tempo .btn,.tempo .was{font-size:7.2pt;letter-spacing:.04em;white-space:nowrap}
 .was{font:500 7.6pt var(--f-mono);color:var(--warm-1);border:1px solid var(--warm-3);padding:1.6mm 2.6mm;letter-spacing:.04em;text-transform:uppercase;background:#fff}
@@ -60,7 +60,7 @@ sup{font-size:.68em;line-height:0}
 .btn{display:inline-flex;align-items:center;gap:2mm;background:var(--blue);color:#fff;font:500 7.8pt var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:1.9mm 3.4mm}
 .btn::before{content:">";font-weight:600}
 .btn b{font-weight:600}
-.visual{position:relative;height:60mm}
+.visual{position:relative;height:66mm}
 .bp{position:absolute;inset:0;width:100%;height:100%}
 .console{position:absolute;right:-4mm;bottom:-5mm;width:56mm;background:rgba(255,255,255,.94);font:400 6.3pt/1.5 var(--f-mono);box-shadow:0 2mm 6mm rgba(38,74,255,.10);padding:0}
 .con-head{display:flex;justify-content:space-between;align-items:center;color:var(--blue);padding:1.6mm 2.6mm;border-bottom:1px solid var(--blue);margin:.5lh .5ch 0}
@@ -72,18 +72,18 @@ sup{font-size:.68em;line-height:0}
 .con-body b{background:var(--blue);color:#fff;font-weight:500;padding:0 1mm}
 
 /* Problem / Lösung */
-.ps{display:grid;grid-template-columns:1fr 1fr;margin-top:5mm}
-.ps>div{padding:2.6mm 4mm 1.6mm;display:grid;gap:1.2mm;align-content:start}
+.ps{display:grid;grid-template-columns:1fr 1fr;margin-top:14mm}
+.ps>div{padding:4mm 5mm 3mm;display:grid;gap:1.2mm;align-content:start}
 .ps .old{border-right:0}
 .ps .new{background:var(--blue);color:#fff;border-color:var(--blue)}
 .ps .new .lab{color:#fff}.ps .new .lab::before{color:#fff}
-.ps h3{font-size:11pt}
-.pic{width:100%;height:27mm;display:block;overflow:visible}
+.ps h3{font-size:12pt}
+.pic{width:100%;height:40mm;display:block;overflow:visible}
 .pic text{font-family:var(--f-sans)}
 .lbl text,text.lbl{paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
 
 /* Blauer Wert-Block */
-.band{position:relative;background:var(--blue);color:#fff;margin-top:3.6mm;padding-block:3mm;overflow:hidden}
+.band{position:relative;background:var(--blue);color:#fff;margin-top:10mm;padding-block:6mm 7mm;overflow:hidden}
 .band::before{content:"";position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.14) 1px,transparent 1px);background-size:14mm 14mm;background-position:13mm 0}
 .band .lab{color:#fff}.band .lab::before{color:#fff}
 .band-in{position:relative;display:grid;grid-template-columns:62mm 1fr;gap:6mm;align-items:center}
@@ -99,14 +99,14 @@ sup{font-size:.68em;line-height:0}
 .chain text{font-family:var(--f-sans)}
 .bc{position:absolute;width:1.4mm;height:1.4mm;border:1px solid rgba(255,255,255,.8);background:var(--blue)}
 
-.band-in2{position:relative;display:grid;gap:3mm}
-.band-head h2{font-size:13pt;color:#fff;margin-top:1.4mm}
+.band-in2{position:relative;display:grid;gap:5mm}
+.band-head h2{font-size:15pt;color:#fff;margin-top:1.4mm}
 .band-head h2 span{color:#c9d3ff}
-.stats4{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.35)}
+.stats4{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.35)}
 .st{display:grid;gap:1.2mm;padding:2.6mm 3mm 0 0;border-right:1px solid rgba(255,255,255,.25);padding-left:3mm}
 .st:first-child{padding-left:0}.st:last-child{border-right:0}
-.st .n{font:500 34pt/.95 var(--f-mono);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.2px #fff}
-.st .t{font-size:8pt;line-height:1.35;color:#dfe5ff}
+.st .n{font:500 44pt/.95 var(--f-mono);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.2px #fff}
+.st .t{font-size:9pt;line-height:1.35;color:#dfe5ff}
 
 /* Differenzierung */
 .diff{margin-top:3.6mm;display:grid;gap:1.6mm}
@@ -138,13 +138,16 @@ sup{font-size:.68em;line-height:0}
 .ppl .k{border-color:var(--warm-3);color:var(--warm-2)}
 .people p{font-size:7.8pt;color:var(--warm-1);line-height:1.3}
 .people p b{color:var(--ink);font-weight:600}
-.cta{position:relative;overflow:hidden;border:1px solid var(--blue);padding:2.8mm 4mm;display:grid;gap:1.6mm;align-content:center;
+.ctawrap{margin-top:10mm}
+.cta{position:relative;overflow:hidden;border:1px solid var(--blue);padding:5mm 6mm;display:grid;grid-template-columns:1fr auto;gap:8mm;align-items:center;
   background:linear-gradient(135deg,#ffffff 30%,var(--blue-soft))}
-.ascii{position:absolute;right:-2mm;top:-1mm;bottom:-1mm;width:46mm;margin:0;font:400 4.6pt/1.05 var(--f-mono);color:var(--warm-3);white-space:pre;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+.ascii{position:absolute;left:50%;top:-1mm;bottom:-1mm;width:48mm;margin:0;font:400 4.6pt/1.05 var(--f-mono);color:var(--warm-3);white-space:pre;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%,#000 65%,transparent);mask-image:linear-gradient(90deg,transparent,#000 35%,#000 65%,transparent)}
 .cta>*:not(.ascii){position:relative}
-.cta h3{font-size:13pt;color:var(--blue)}
-.cta p{font-size:8pt;line-height:1.4;color:var(--warm-1);max-width:62mm}
+.cta-text{display:grid;gap:1.8mm}
+.cta-act{display:grid;gap:2.4mm;justify-items:start}
+.cta h3{font-size:15pt;color:var(--blue)}
+.cta p{font-size:8.8pt;line-height:1.45;color:var(--warm-1);max-width:100mm}
 .cta .btn{justify-self:start}
 .contact{font:400 7pt var(--f-mono);color:var(--warm-1)}
 
@@ -181,12 +184,11 @@ footer{margin-top:auto;padding-block:1.8mm 5mm;display:flex;justify-content:spac
 <div class="page">
   <div class="top in">
     <span class="logo">[ IHR LOGO ]</span>
-    <nav class="nav"><span>PROBLEM</span><span>LÖSUNG</span><span>WERT</span><span>KONTAKT</span></nav>
+    <span class="lab">KI-Angebotsautomatisierung · Maschinenbau</span>
   </div>
 
   <section class="hero in">
     <div class="hero-text">
-      <span class="ann"><i></i>KI-Angebotsautomatisierung für den Maschinenbau</span>
       <h1>Ihr Vertrieb soll verkaufen.<br>Nicht Anfragen abtippen.</h1>
       <p class="sub">Wir automatisieren den Weg von der Kundenanfrage bis zum fertigen Angebot. Ihr Team prüft und gibt frei, den Rest erledigt die KI.</p>
       <div class="tempo">
@@ -342,78 +344,27 @@ footer{margin-top:auto;padding-block:1.8mm 5mm;display:flex;justify-content:spac
       <div class="stats4">
         <div class="st"><span class="n">120×</span><span class="t">schneller zum Angebots&shy;entwurf<sup>1</sup></span></div>
         <div class="st"><span class="n">94%</span><span class="t">weniger Aufwand je Angebot, inklusive Prüfung<sup>2</sup></span></div>
-        <div class="st"><span class="n">24/7</span><span class="t">Anfragen werden sofort vorbereitet, auch nachts</span></div>
         <div class="st"><span class="n">7</span><span class="t">Vollzeitstellen frei bei 50 Anfragen pro Woche<sup>2</sup></span></div>
       </div>
     </div>
   </section>
 
-  <section class="diff in">
-    <span class="lab">Was uns anders macht</span>
-    <h2>Wir beginnen dort, wo die Arbeit beginnt: <span>bei der Kundenanfrage.</span></h2>
-    <svg class="cover" viewBox="0 0 720 132" role="img" aria-label="Prozesskette von Anfrage lesen bis Angebot erstellen: wir automatisieren die ganze Kette ab der ersten E-Mail">
-      <defs>
-        <linearGradient id="stg" x1="0" x2="1"><stop offset="0" stop-color="#264aff"/><stop offset="1" stop-color="#516dfe"/></linearGradient>
-        <linearGradient id="brk" x1="0" x2="1"><stop offset="0" stop-color="#264aff"/><stop offset="1" stop-color="#264aff"/></linearGradient>
-        <filter id="gl" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="3"/></filter>
-      </defs>
-      <!-- Wir: ganze Kette -->
-      <path d="M6 30 V20 H714 V30" fill="none" stroke="url(#brk)" stroke-width="6" filter="url(#gl)" opacity=".55"/>
-      <path d="M6 30 V20 H714 V30" fill="none" stroke="url(#brk)" stroke-width="2.6" stroke-linejoin="round"/>
-      <rect x="262" y="7" width="196" height="26" rx="13" fill="#264aff"/>
-      <svg x="274" y="12" width="16" height="16" class="ic" style="color:#ffffff"><use href="#i-spark"/></svg>
-      <text x="296" y="25" font-size="12" font-weight="700" fill="#fff">Wir: ab der ersten E-Mail</text>
-      <!-- Stufen -->
-      <g font-size="11.5" font-weight="700" text-anchor="middle">
-        <path d="M2 40 H136 L152 62 L136 84 H2 Z" fill="url(#stg)"/>
-        <path d="M144 40 H280 L296 62 L280 84 H144 L160 62 Z" fill="url(#stg)"/>
-        <path d="M288 40 H424 L440 62 L424 84 H288 L304 62 Z" fill="#dfe5ff"/>
-        <path d="M432 40 H568 L584 62 L568 84 H432 L448 62 Z" fill="#dfe5ff"/>
-        <path d="M576 40 H718 V84 H576 L592 62 Z" fill="#dfe5ff"/>
-        <text x="74" y="66" fill="#fff">Anfrage lesen</text>
-        <text x="224" y="66" fill="#fff">Anforderungen klären</text>
-        <text x="366" y="66" fill="#000000">Konfigurieren</text>
-        <text x="510" y="66" fill="#000000">Kalkulieren</text>
-        <text x="652" y="66" fill="#000000">Angebot erstellen</text>
-      </g>
-      
-      
-      <text x="503" y="114" text-anchor="middle" font-size="11.5" fill="#264aff">danach automatisch, nach Ihren Regeln</text>
-      <svg x="10" y="99" width="16" height="16" class="ic" style="color:#264aff"><use href="#i-arrow"/></svg>
-      <text x="32" y="112" font-size="11.5" font-weight="700" fill="#264aff">Hier steckt die Handarbeit.</text>
-      <text x="32" y="126" font-size="11.5" fill="#264aff">Genau hier setzen wir an.</text>
-    </svg>
-    <div class="usp">
-      <div box-="square"><h4>Versteht echte Anfragen</h4><p>Lastenhefte, Freitext-Mails, Stücklisten. Ohne Formular.</p></div>
-      <div box-="square"><h4>Markiert statt rät</h4><p>Unklares zeigt die KI offen an. Ihr Team entscheidet.</p></div>
-      <div box-="square"><h4>Ihre Regeln, Ihr System</h4><p>Ihr Produktmodell, Ihre Preise, Ihr ERP.</p></div>
-    </div>
-  </section>
-
-  <section class="bottom in">
-    <div class="frame ex"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
-      <span class="lab">Beispiel: 50 Anfragen pro Woche</span>
-      <div class="hours">
-        <div class="h old"><b>300&nbsp;h</b><span>heute pro Woche<br>50 × 6&nbsp;h<sup>2</sup></span></div>
-        <svg class="ic harr"><use href="#i-arrow"/></svg>
-        <div class="h new"><b>19&nbsp;h</b><span>mit uns pro Woche<br>50 × (3 + 20&nbsp;Min.)<sup>1,2</sup></span></div>
-      </div>
-      <div class="people">
-        <div class="ppl"><i class="f"><svg class="ic"><use href="#i-person"/></svg></i><i class="f"><svg class="ic"><use href="#i-person"/></svg></i><i class="f"><svg class="ic"><use href="#i-person"/></svg></i><i class="f"><svg class="ic"><use href="#i-person"/></svg></i><i class="f"><svg class="ic"><use href="#i-person"/></svg></i><i class="f"><svg class="ic"><use href="#i-person"/></svg></i><i class="f"><svg class="ic"><use href="#i-person"/></svg></i><i class="k"><svg class="ic"><use href="#i-person"/></svg></i></div>
-        <p><b>7 Vollzeitstellen</b> frei für Verkauf.</p>
-      </div>
-    </div>
+  <section class="ctawrap in">
     <div class="cta">
       <pre class="ascii" id="ascii" aria-hidden="true"></pre>
-      <span class="lab">Nächster Schritt</span>
-      <h3>30 Minuten Potenzialanalyse</h3>
-      <p>Wir rechnen das Beispiel mit Ihren Zahlen nach. Danach: Pilot mit einer Produktlinie. Sie entscheiden anhand der Ergebnisse.</p>
-      <span class="btn">Termin vereinbaren</span>
-      <div class="contact">[Vorname Nachname] · [Telefon] · [E-Mail]</div>
+      <div class="cta-text">
+        <span class="lab">Nächster Schritt</span>
+        <h3>30 Minuten Potenzialanalyse</h3>
+        <p>Wir rechnen mit Ihren Zahlen und starten einen Pilot mit einer Produktlinie. Sie entscheiden anhand der Ergebnisse.</p>
+      </div>
+      <div class="cta-act">
+        <span class="btn">Termin vereinbaren</span>
+        <div class="contact">[Vorname Nachname]<br>[Telefon] · [E-Mail]</div>
+      </div>
     </div>
   </section>
 
-  <p class="src in"><sup>1</sup> Zielwert: KI-Entwurf einer Standardanfrage in 3 Min. statt 6 Std. Handarbeit, im Pilot gemessen. <sup>2</sup> Annahmen: heute 6 Std. je Angebot, mit uns 3 Min. Entwurf + 20 Min. Prüfung; Vollzeit 40 Std./Woche.</p>
+  <p class="src in"><sup>1</sup> Zielwert: KI-Entwurf einer Standardanfrage in 3 Min. statt 6 Std. Handarbeit. <sup>2</sup> Annahmen: 3 Min. Entwurf + 20 Min. Prüfung je Angebot, Vollzeit 40 Std./Woche. Alle Werte werden im Pilot gemessen.</p>
 
   <footer class="in"><span>[FIRMENNAME] · KI-GESTÜTZTE ANGEBOTSAUTOMATISIERUNG (CPQ)</span><span>STAND OKTOBER 2026</span></footer>
 </div>
