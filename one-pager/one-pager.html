@@ -50,7 +50,10 @@ sup{font-size:.68em;line-height:0}
 .hero-text{display:grid;gap:4.4mm;align-content:center}
 .ann{justify-self:start;display:flex;align-items:center;gap:2mm;background:#fff;border:1px solid var(--warm-3);padding:1.4mm 3mm;font:500 7.6pt var(--f-sans)}
 .ann i{width:1.6mm;height:1.6mm;border-radius:50%;background:var(--blue)}
-.hero h1{font-size:24pt;color:var(--blue);line-height:1.08;letter-spacing:-.02em}
+.prod{justify-self:start;display:flex;align-items:center;gap:2.4mm;font:500 7.4pt var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--warm-1)}
+.prod b{background:var(--blue);color:#fff;font-weight:600;padding:1.2mm 2.4mm;letter-spacing:.08em}
+.hero h1 .ink{color:var(--ink)}
+.hero h1{font-size:26pt;color:var(--blue);line-height:1.08;letter-spacing:-.02em}
 .hero .sub{font-size:10pt;line-height:1.45;max-width:96mm}
 .tempo{display:flex;align-items:center;gap:1.8mm;flex-wrap:nowrap}
 .tempo .btn,.tempo .was{font-size:7.2pt;letter-spacing:.04em;white-space:nowrap}
@@ -185,13 +188,14 @@ footer{margin-top:auto;padding-block:1.8mm 5mm;display:flex;justify-content:spac
 <div class="page">
   <div class="top in">
     <span class="logo">[ IHR LOGO ]</span>
-    <span class="lab">KI-Angebotsautomatisierung · Maschinenbau</span>
+    <span class="mono" style="font-size:6.8pt;letter-spacing:.06em;color:#9e978e">[WWW.PRODUKTNAME.DE]</span>
   </div>
 
   <section class="hero in">
     <div class="hero-text">
-      <h1>Ihr Vertrieb soll verkaufen.<br>Nicht Anfragen abtippen.</h1>
-      <p class="sub">Wir automatisieren den Weg von der Kundenanfrage bis zum fertigen Angebot. Ihr Team prüft und gibt frei, den Rest erledigt die KI.</p>
+      <span class="prod"><b>[PRODUKTNAME]</b> KI-Angebotssoftware · Maschinenbau</span>
+      <h1>Vom Lastenheft zum Angebot.<br><span class="ink">In 3 Minuten.</span></h1>
+      <p class="sub">KI-Agenten lesen Ihre Anfragen, konfigurieren die Anlage und kalkulieren nach Ihren Preisregeln. Ihr Team prüft nur noch und gibt frei.</p>
       <div class="tempo">
         <span class="was">Heute: <s>6 Std.</s></span>
         <svg class="ic arr"><use href="#i-arrow"/></svg>
@@ -248,7 +252,7 @@ footer{margin-top:auto;padding-block:1.8mm 5mm;display:flex;justify-content:spac
   </g>
 </svg>
       <div class="console" box-="square">
-  <div class="con-head"><span>KONFIGURATION RFQ-0412</span><i></i></div>
+  <div class="con-head"><span>RFQ-0412 · 4 AGENTEN PARALLEL</span><i></i></div>
   <div class="con-body">
     <div>&gt; Lastenheft.pdf empfangen</div>
     <div class="ai">✦ Lese-Agent: <span>Anlage, 3 Module</span></div>
@@ -300,56 +304,61 @@ footer{margin-top:auto;padding-block:1.8mm 5mm;display:flex;justify-content:spac
     <div class="frame new"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
       <span class="lab">Mit uns</span>
       <h3>KI-Agenten arbeiten, Ihr Team gibt frei</h3>
-      <svg class="pic" viewBox="0 0 340 150" role="img" aria-label="Mit uns: vier KI-Agenten lesen, klären, kalkulieren und schreiben das Angebot in 2 Minuten 47, Ihr Team gibt frei">
-  <defs>
-    <linearGradient id="agb" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".25"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#ffffff" stop-opacity=".9"/></linearGradient>
-  </defs>
-  <path d="M60 22H298M60 22v6M298 22v6" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
-  <rect x="118" y="13" width="122" height="17" fill="#264aff"/>
-  <text x="179" y="25" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.4" fill="#ffffff" letter-spacing=".4">4 KI-AGENTEN · 02:47</text>
+      <svg class="pic" viewBox="0 0 340 150" role="img" aria-label="Mit uns: vier KI-Agenten lesen, klären, kalkulieren und schreiben parallel; nach 2 Minuten 47 liegt der Entwurf vor, Ihr Team gibt frei">
+  <text x="170" y="14" font-family="IBM Plex Mono,monospace" font-size="7.2" fill="#ffffff" letter-spacing=".4">4 KI-AGENTEN · PARALLEL</text>
+  <text x="170" y="25" font-family="IBM Plex Mono,monospace" font-size="6.4" fill="#c9d3ff">0:00</text>
+  <text x="266" y="25" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="6.4" fill="#c9d3ff">2:47</text>
+  <path d="M170 28V116M266 28V116" stroke="#ffffff" stroke-opacity=".35" stroke-dasharray="2 2"/>
   <g fill="#ffffff" fill-opacity=".14" stroke="#ffffff" stroke-opacity=".6">
-    <rect x="4" y="44" width="34" height="16"/><rect x="4" y="62" width="34" height="16"/><rect x="4" y="80" width="34" height="16"/>
+    <rect x="4" y="46" width="34" height="16"/><rect x="4" y="64" width="34" height="16"/><rect x="4" y="82" width="34" height="16"/>
   </g>
-  <svg x="14" y="46" width="12" height="12" class="ic" style="color:#fff"><use href="#i-mail"/></svg>
-  <svg x="14" y="64" width="12" height="12" class="ic" style="color:#fff"><use href="#i-file"/></svg>
-  <svg x="14" y="82" width="12" height="12" class="ic" style="color:#fff"><use href="#i-grid"/></svg>
-  <path d="M38 52C50 52 48 70 60 70M38 70H60M38 88C50 88 48 70 60 70" fill="none" stroke="#ffffff" stroke-opacity=".6" stroke-width="1"/>
-  <text x="21" y="110" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="#c9d3ff">ANFRAGE</text>
-  <rect x="60" y="67" width="244" height="6" fill="#ffffff" fill-opacity=".15"/>
-  <rect x="60" y="69" width="244" height="2" fill="url(#agb)"/>
-  <path d="M300 64l7 6-7 6" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+  <svg x="14" y="48" width="12" height="12" class="ic" style="color:#fff"><use href="#i-mail"/></svg>
+  <svg x="14" y="66" width="12" height="12" class="ic" style="color:#fff"><use href="#i-file"/></svg>
+  <svg x="14" y="84" width="12" height="12" class="ic" style="color:#fff"><use href="#i-grid"/></svg>
+  <path d="M38 54C48 54 48 72 58 72M38 72H58M38 90C48 90 48 72 58 72" fill="none" stroke="#ffffff" stroke-opacity=".6" stroke-width="1"/>
+  <text x="21" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.8" fill="#c9d3ff">ANFRAGE</text>
   
-    <circle cx="86" cy="70" r="23" fill="#ffffff" fill-opacity=".14"/>
-    <circle cx="86" cy="70" r="16" fill="#ffffff"/>
-    <svg x="77" y="61" width="18" height="18" class="ic" style="color:#264aff"><use href="#i-eye"/></svg>
-    <text x="86" y="38" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.8" fill="#c9d3ff">A1</text>
-    <text x="86" y="105" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" font-weight="600" fill="#ffffff" letter-spacing=".2">LESE-AGENT</text>
-    <text x="86" y="117" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="#c9d3ff">✓ 0:38</text>
-    <circle cx="148" cy="70" r="23" fill="#ffffff" fill-opacity=".14"/>
-    <circle cx="148" cy="70" r="16" fill="#ffffff"/>
-    <svg x="139" y="61" width="18" height="18" class="ic" style="color:#264aff"><use href="#i-sliders"/></svg>
-    <text x="148" y="38" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.8" fill="#c9d3ff">A2</text>
-    <text x="148" y="105" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" font-weight="600" fill="#ffffff" letter-spacing=".2">TECHNIK-AGENT</text>
-    <text x="148" y="117" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="#c9d3ff">✓ 1:05</text>
-    <circle cx="210" cy="70" r="23" fill="#ffffff" fill-opacity=".14"/>
-    <circle cx="210" cy="70" r="16" fill="#ffffff"/>
-    <svg x="201" y="61" width="18" height="18" class="ic" style="color:#264aff"><use href="#i-calc"/></svg>
-    <text x="210" y="38" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.8" fill="#c9d3ff">A3</text>
-    <text x="210" y="105" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" font-weight="600" fill="#ffffff" letter-spacing=".2">PREIS-AGENT</text>
-    <text x="210" y="117" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="#c9d3ff">✓ 0:41</text>
-    <circle cx="272" cy="70" r="23" fill="#ffffff" fill-opacity=".14"/>
-    <circle cx="272" cy="70" r="16" fill="#ffffff"/>
-    <svg x="263" y="61" width="18" height="18" class="ic" style="color:#264aff"><use href="#i-pen"/></svg>
-    <text x="272" y="38" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.8" fill="#c9d3ff">A4</text>
-    <text x="272" y="105" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" font-weight="600" fill="#ffffff" letter-spacing=".2">ANGEBOTS-AGENT</text>
-    <text x="272" y="117" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="#c9d3ff">✓ 0:23</text>
-  <rect x="310" y="46" width="28" height="38" fill="#ffffff"/>
-  <rect x="310" y="46" width="28" height="7" fill="#c9d3ff"/>
-  <path d="M314 60h18M314 65h20M314 70h14M314 75h18" stroke="#c9d3ff" stroke-width="1.6"/>
-  <circle cx="334" cy="84" r="7" fill="#10b981" stroke="#264aff" stroke-width="2"/>
-  <path d="M330.5 84l2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="324" y="105" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" font-weight="600" fill="#ffffff">TEAM</text>
-  <text x="324" y="117" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="#c9d3ff">gibt frei</text>
+    <path d="M58 72C70 72 66 36 78 36" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+    <circle cx="86" cy="36" r="9" fill="#ffffff"/>
+    <svg x="80" y="30" width="12" height="12" class="ic" style="color:#264aff"><use href="#i-eye"/></svg>
+    <text x="100" y="38.5" font-family="IBM Plex Mono,monospace" font-size="6.8" font-weight="600" fill="#ffffff">LESE-AGENT</text>
+    <rect x="170" y="33" width="96" height="6" fill="#ffffff" fill-opacity=".12"/>
+    <rect x="170" y="33" width="29.9" height="6" fill="#ffffff"/>
+    <text x="271" y="38.5" font-family="IBM Plex Mono,monospace" font-size="6.6" fill="#c9d3ff">0:52</text>
+    <path d="M290 36C299 36 297 72 306 72" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+    <path d="M58 72C70 72 66 60 78 60" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+    <circle cx="86" cy="60" r="9" fill="#ffffff"/>
+    <svg x="80" y="54" width="12" height="12" class="ic" style="color:#264aff"><use href="#i-sliders"/></svg>
+    <text x="100" y="62.5" font-family="IBM Plex Mono,monospace" font-size="6.8" font-weight="600" fill="#ffffff">TECHNIK-AGENT</text>
+    <rect x="170" y="57" width="96" height="6" fill="#ffffff" fill-opacity=".12"/>
+    <rect x="170" y="57" width="96.0" height="6" fill="#ffffff"/>
+    <text x="271" y="62.5" font-family="IBM Plex Mono,monospace" font-size="6.6" fill="#c9d3ff">2:47</text>
+    <path d="M290 60C299 60 297 72 306 72" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+    <path d="M58 72C70 72 66 84 78 84" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+    <circle cx="86" cy="84" r="9" fill="#ffffff"/>
+    <svg x="80" y="78" width="12" height="12" class="ic" style="color:#264aff"><use href="#i-calc"/></svg>
+    <text x="100" y="86.5" font-family="IBM Plex Mono,monospace" font-size="6.8" font-weight="600" fill="#ffffff">PREIS-AGENT</text>
+    <rect x="170" y="81" width="96" height="6" fill="#ffffff" fill-opacity=".12"/>
+    <rect x="170" y="81" width="86.8" height="6" fill="#ffffff"/>
+    <text x="271" y="86.5" font-family="IBM Plex Mono,monospace" font-size="6.6" fill="#c9d3ff">2:31</text>
+    <path d="M290 84C299 84 297 72 306 72" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+    <path d="M58 72C70 72 66 108 78 108" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+    <circle cx="86" cy="108" r="9" fill="#ffffff"/>
+    <svg x="80" y="102" width="12" height="12" class="ic" style="color:#264aff"><use href="#i-pen"/></svg>
+    <text x="100" y="110.5" font-family="IBM Plex Mono,monospace" font-size="6.8" font-weight="600" fill="#ffffff">ANGEBOTS-AGENT</text>
+    <rect x="170" y="105" width="96" height="6" fill="#ffffff" fill-opacity=".12"/>
+    <rect x="170" y="105" width="67.8" height="6" fill="#ffffff"/>
+    <text x="271" y="110.5" font-family="IBM Plex Mono,monospace" font-size="6.6" fill="#c9d3ff">1:58</text>
+    <path d="M290 108C299 108 297 72 306 72" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+  <path d="M306 72H312" stroke="#ffffff" stroke-width="1.4"/>
+  <path d="M310 68l4 4-4 4" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+  <rect x="308" y="52" width="28" height="38" fill="#ffffff"/>
+  <rect x="308" y="52" width="28" height="7" fill="#c9d3ff"/>
+  <path d="M312 66h18M312 71h20M312 76h14M312 81h18" stroke="#c9d3ff" stroke-width="1.6"/>
+  <circle cx="333" cy="90" r="7" fill="#10b981" stroke="#264aff" stroke-width="2"/>
+  <path d="M329.5 90l2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="322" y="110" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" font-weight="600" fill="#ffffff">TEAM</text>
+  <text x="322" y="120" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.6" fill="#c9d3ff">gibt frei</text>
   <rect x="60" y="130" width="244" height="16" fill="#ffffff" fill-opacity=".12"/>
   <text x="182" y="141" text-anchor="middle" font-family="Manrope,Arial" font-size="8" fill="#ffffff">Kein Abtippen. Kein Angebot ohne Menschen.</text>
 </svg>
