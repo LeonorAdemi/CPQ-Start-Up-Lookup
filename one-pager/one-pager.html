@@ -45,7 +45,7 @@ p{margin:0}
 .chips{display:flex;flex-wrap:nowrap;gap:1.4mm;margin-top:3mm}
 .chip{font:600 7.4pt var(--f-body);padding:1.2mm 2.5mm;white-space:nowrap;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;display:flex;gap:1.4mm;align-items:center}
 .chip svg{width:3.4mm;height:3.4mm;color:var(--glow)}
-.illu svg{width:100%;height:36mm;display:block;filter:drop-shadow(0 3mm 6mm rgba(0,0,0,.35))}
+.illu svg{width:100%;height:37mm;display:block;filter:drop-shadow(0 3mm 6mm rgba(0,0,0,.35))}
 
 /* Vergleich */
 .compare{padding-top:4mm;display:grid;gap:3mm}
@@ -76,7 +76,7 @@ p{margin:0}
 .done{display:flex;align-items:center;gap:2mm;background:rgba(255,255,255,.14);border-radius:2mm;padding:2mm 3mm;font-weight:700;font-size:9pt}
 .done svg{width:5.4mm;height:5.4mm;color:#7ff0bf}
 .mid{display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
-.pic{width:100%;height:33mm;display:block;overflow:visible}
+.pic{width:100%;height:31mm;display:block;overflow:visible}
 .pic text{font-family:var(--f-body)}
 .lbl text,text.lbl{paint-order:stroke;stroke:#fdf0ee;stroke-width:5px;stroke-linejoin:round}
 .mid div{margin:0 -3mm;width:10mm;height:10mm;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 1.5mm 4mm rgba(18,26,46,.15);display:flex;align-items:center;justify-content:center;color:var(--accent)}
@@ -130,7 +130,7 @@ footer::before{content:none}
 .sp-head{display:grid;gap:1.6mm}
 .special h2{font-size:12pt}
 .special h2 em{font-style:normal;color:var(--accent)}
-.cover{width:100%;height:28mm;display:block;overflow:visible}
+.cover{width:100%;height:26mm;display:block;overflow:visible}
 .cover text{font-family:var(--f-body)}
 .usp{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
 .usp>div{display:grid;grid-template-columns:auto 1fr;gap:2.6mm;align-items:center;padding:2.2mm 3mm;border-radius:2.5mm;background:var(--tint);border:1px solid var(--line)}
@@ -164,7 +164,7 @@ sup{font-size:.7em;line-height:0}
 .value h2{font-size:12.5pt}
 .value h2 em{font-style:normal;color:var(--accent)}
 .vgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:4mm;align-items:stretch}
-.vbig{border-radius:3mm;padding:3.4mm 4mm;color:#fff;display:grid;gap:2.2mm;align-content:start;
+.vbig{border-radius:3mm;padding:3.4mm 4mm;color:#fff;display:grid;gap:2.2mm;align-content:center;
   background:radial-gradient(45mm 30mm at 100% 0%,rgba(143,211,255,.4),transparent 70%),linear-gradient(135deg,#0b1430,#1d36a8 60%,#2f54e0);box-shadow:0 2.5mm 7mm rgba(13,22,51,.3)}
 .vbig .cap{font:600 7pt var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--glow)}
 .vbars{display:grid;gap:1.4mm}
@@ -184,6 +184,24 @@ sup{font-size:.7em;line-height:0}
 .chain{border-radius:3mm;border:1px solid #dfe5f7;background:linear-gradient(180deg,#f7f9ff,#eef2fd);padding:2mm 3mm;display:flex;align-items:center}
 .chain svg{width:100%;height:31mm;display:block;overflow:visible}
 .chain text{font-family:var(--f-body)}
+
+/* Tempo-Versprechen */
+.tempo{display:flex;align-items:center;gap:2.4mm;margin-top:3.2mm}
+.tempo .was,.tempo .now{display:flex;align-items:center;gap:1.6mm;border-radius:999px;padding:1.6mm 3.4mm;font:600 8.6pt var(--f-body);white-space:nowrap}
+.tempo .was{background:rgba(255,139,127,.12);border:1px solid rgba(255,139,127,.45);color:#ffd0ca}
+.tempo .was s{text-decoration-thickness:.4mm;text-decoration-color:#ff8b7f}
+.tempo .was svg{width:3.8mm;height:3.8mm;color:#ff8b7f}
+.tempo .arr{width:5mm;height:5mm;color:var(--glow)}
+.tempo .now{background:linear-gradient(90deg,#ffffff,#d6ecff);color:#0b1430;box-shadow:0 0 5mm rgba(143,211,255,.55)}
+.tempo .now svg{width:4.2mm;height:4.2mm;color:var(--accent)}
+.tempo .now b{font:900 11pt var(--f-display);color:var(--accent)}
+.vhero{display:flex;align-items:center;gap:3mm}
+.watch{width:15mm;height:15mm;filter:drop-shadow(0 0 2.5mm rgba(143,211,255,.6))}
+.big{display:flex;align-items:baseline;gap:1.6mm}
+.big b{font:900 34pt/0.9 var(--f-display);background:linear-gradient(180deg,#ffffff,#8fd3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.big span{font:800 13pt var(--f-display);color:#fff}
+.vb .slow{display:block;width:100%;background:repeating-linear-gradient(135deg,rgba(255,139,127,.75) 0 1.6mm,rgba(255,139,127,.45) 1.6mm 3.2mm)}
+.vb .fast{display:block;width:6%;min-width:2.4mm;background:#fff;box-shadow:0 0 3mm #8fd3ff}
 </style>
 </head>
 <body>
@@ -221,6 +239,11 @@ sup{font-size:.7em;line-height:0}
       <div>
         <h1>Ihr Vertrieb soll verkaufen.<br><em>Nicht Anfragen abtippen.</em></h1>
         <p class="sub">Wir automatisieren den Weg von der Kundenanfrage bis zum fertigen Angebot. Ihr Team prüft und gibt frei, den Rest erledigt die KI.</p>
+        <div class="tempo">
+          <span class="was"><svg class="ic"><use href="#i-hourglass"/></svg>Heute: <s>Tage</s></span>
+          <svg class="ic arr"><use href="#i-arrow"/></svg>
+          <span class="now"><svg class="ic"><use href="#i-bolt"/></svg>Angebotsentwurf in <b>3&nbsp;Minuten</b><sup>3</sup></span>
+        </div>
       </div>
       <div class="illu">
         <svg viewBox="0 0 300 190" role="img" aria-label="Ungeordnete Anfragen werden durch KI zu einem fertigen, freigegebenen Angebot">
@@ -343,12 +366,18 @@ sup{font-size:.7em;line-height:0}
     </div>
     <div class="vgrid">
       <div class="vbig">
-        <span class="cap">Eingesparte Zeit pro Angebot</span>
-        <div class="vbars">
-          <div class="vb"><span>Klassisches CPQ</span><div class="track"><i class="base"></i></div><b>27&nbsp;%<sup>2</sup></b></div>
-          <div class="vb us"><span>Mit uns</span><div class="track"><i class="base"></i><i class="plus">+ Lesen und Klären</i></div><b>mehr</b></div>
+        <span class="cap">Von der Anfrage zum Entwurf</span>
+        <div class="vhero">
+          <svg class="watch" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="34" r="24" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="6"/>
+            <circle cx="32" cy="34" r="24" fill="none" stroke="#8fd3ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="7.5 143.3" transform="rotate(-90 32 34)"/>
+            <rect x="28" y="3" width="8" height="5" rx="1.5" fill="#8fd3ff"/>
+            <path d="M32 34V20" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+            <circle cx="32" cy="34" r="2.6" fill="#fff"/>
+          </svg>
+          <div class="big"><b>3</b><span>Minuten<sup>3</sup></span></div>
         </div>
-        <p><b>27 % sind unser Startpunkt, nicht unser Ziel.</b> Dazu kommt, was davor liegt: Lesen und Klären der Anfrage.</p>
+        <p><b>Ihr Team prüft nur noch und gibt frei.</b> Schon klassisches CPQ spart 27 % Arbeitszeit<sup>2</sup>. Wir setzen früher an.</p>
       </div>
       <div class="chain">
         <svg viewBox="0 0 400 150" role="img" aria-label="Wertkette: Zeit frei, mehr Angebote, schneller beim Kunden, mehr Aufträge">
@@ -378,14 +407,14 @@ sup{font-size:.7em;line-height:0}
             <text x="34" y="132">Verkaufszeit¹</text>
             <text x="132" y="120">mit demselben</text>
             <text x="132" y="132">Team</text>
-            <text x="236" y="134">solange er vergleicht</text>
+            <text x="236" y="134">Entwurf in 3 Minuten</text>
             <text x="350" y="122">aus eingesparter Zeit</text>
             <text x="350" y="134">wird Umsatz</text>
           </g>
         </svg>
       </div>
     </div>
-    <p class="src"><sup>1</sup> Salesforce, State of Sales, 5. Ausgabe, Dez. 2022, 7.775 Befragte. <sup>2</sup> Aberdeen Group, zitiert nach SoftClouds: 3,6 statt 4,9 Stunden je Angebot.</p>
+    <p class="src"><sup>1</sup> Salesforce, State of Sales, 5. Ausgabe, Dez. 2022, 7.775 Befragte. <sup>2</sup> Aberdeen Group, zit. n. SoftClouds: 3,6 statt 4,9 h je Angebot. <sup>3</sup> Zielwert je Standardanfrage, im Pilot gemessen.</p>
   </section>
 
   <section class="special in">
@@ -443,14 +472,14 @@ sup{font-size:.7em;line-height:0}
         <div class="inp"><div class="box"></div><span>Stundensatz in €</span></div>
       </div>
       <div class="result"><span class="eq">=</span><div class="box">Ihre Angebotskosten pro Jahr<i></i>€</div></div>
-      <p class="fine"><b>Ihre Zahlen statt Musterrechnung.</b> Die Einsparung messen wir im Pilot.</p>
+      <p class="fine"><b>Ihre Zahlen statt Musterrechnung.</b></p>
     </div>
 
     <div class="right">
       <div class="cta">
         <span class="eyebrow">Nächster Schritt</span>
         <h3>30 Minuten Potenzialanalyse</h3>
-        <p>Wir füllen die Rechnung links gemeinsam aus. Danach: Pilot mit einer Produktlinie, gemessen an Ihren echten Anfragen. Sie entscheiden anhand Ihrer Zahlen.</p>
+        <p>Wir rechnen links gemeinsam mit Ihren Zahlen. Danach: Pilot mit einer Produktlinie. Sie entscheiden anhand der Ergebnisse.</p>
         <div class="contact">[Vorname Nachname] · [Telefon]<br>[E-Mail] · [Website]</div>
       </div>
     </div>
