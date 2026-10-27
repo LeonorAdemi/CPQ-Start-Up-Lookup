@@ -2,7 +2,7 @@
 
 Stilrichtung: technischer KI-Look für Industrie und Maschinenbau, inspiriert von der Bildsprache von dryft.ai. Übernommen wurden nur Stilmittel, keine Logos, Texte oder Grafiken:
 
-- Papierfarbener Hintergrund mit leichtem Korn, elektrisches Blau `#264AFF` als einziger Akzent, warme Grautöne
+- Farbpalette nach lio.ai: Nachtblau `#0C1824` / `#182430`, Fast-Schwarz `#010203`, Petrol-Akzent `#3F7275` mit verwischten Petrol-Lichtern (`#487878`–`#609090`), kühles Grau `#9CA3AF`, heller Grund `#F6F7F8`, leichtes Korn
 - Feine Strichzeichnung einer konfigurierbaren Maschine mit blauen Bauteil-Labels (eigene Zeichnung)
 - KI-Konsole mit Protokollzeilen, Rahmen mit Eckmarken, vollflächiger blauer Block mit Raster
 - ASCII-Feld als Dekor, eckige Buttons in Mono-Großbuchstaben (`> TERMIN VEREINBAREN`)
